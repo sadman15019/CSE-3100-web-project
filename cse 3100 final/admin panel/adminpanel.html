@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+  <link rel="stylesheet" href="adminpanel.css">
+</head>
+
+<body>
+  <div class="container1">
+    <div class="admin-product-form-container">
+      <form action="http://localhost/admin panel/adminpanel.php" method="post" enctype="multipart/form-data">
+
+        <div class="dropdown">
+          <label for="category-name" id="label">Choose a category:</label>
+          <select name="category" id="category">
+            <option value="Masterbed">Masterbed</option>
+            <option value="Drawing">Drawing</option>
+            <option value="Dining">Dining</option>
+            <option value="Kitchen">Kitchen</option>
+          </select>
+        </div>
+        <br>
+        <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="addform">
+        <input type="text" placeholder="enter product name" name="product_name" class="addform">
+        <input type="text" placeholder="enter product price" name="product_price" class="addform">
+        <input type="submit" class="btn" name="add_product" value="add_product">
+      </form>
+    </div>
+  </div>
+  <?php
+
+  $select = mysqli_query($conn, "SELECT * FROM products");
+  
+  ?>
+  <section id="MasterBed_product">
+    <div id="masterbedcontainer" class="container2">
+      <?php while($row = mysqli_fetch_assoc($select)){ ?>
+      <div class="product">
+        <img src="uploaded_img/<?php echo $row['image']; ?>" height="100" alt="abc">
+        <div class="description">
+          <h6><?php echo $row['name']; ?></h6>
+          <h4><?php echo $row['price']; ?></h4>
+        </div>
+      </div>
+      <?php } ?>
+    </div>
+  </section>
+</body>
+
+</html>

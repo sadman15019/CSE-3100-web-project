@@ -1,0 +1,633 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    font-size: 20px;
+      box-sizing: border-box;
+  }
+
+  .btn{
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border-radius: .5rem;
+    margin-top: 10px;
+    font-size: 30px;
+    /*padding:1rem 3rem;*/
+    background: var(--green);
+    background-color: rgb(177, 166, 228);
+    color:var(--white);
+    text-align: center;
+    text-decoration: none;
+ }
+  .header{
+   /* box-shadow: 20px 20px 34px rgba(0,0,0,0.3);*/
+  }
+  #Master_Bed:hover #Master_bedpop{
+    display: block;
+  }
+  
+  #Master_bedpop:hover #Master_bedpop {
+    display: block;
+  }
+  
+  #Master_bedpop{
+    height: 500px;
+    width: 1000px;
+    position: absolute;
+    /*top: 50px;*/
+    left: -50px;
+    display: none;
+    background-color: white;
+    z-index: -1;
+  }
+  
+  #Dining:hover #Diningpop {
+    display: block;
+  }
+  
+  #Diningpop:hover #Diningpop {
+    display: block;
+  }
+  
+  #Diningpop {
+    height: 500px;
+    width: 1000px;
+    position: absolute;
+    /*top: 50px;*/
+    left: -50px;
+    display: none;
+    background-color: white;
+    z-index: -1;
+  }
+  
+  #Drawing:hover #Drawingpop {
+    display: block;
+  }
+  
+  #Drawingpop:hover #Drawingpop {
+    display: block;
+  }
+  
+  #Drawingpop {
+    height: 500px;
+    width: 1000px;
+    position: absolute;
+    top: 50px;
+    left: -50px;
+    display: none;
+    background-color: white;
+    z-index: -1;
+  }
+  
+  #Kitchen:hover #Kitchenpop {
+    display: block;
+  }
+  #Kitchenpop:hover #Kitchenpop{
+    display: block;
+  }
+  #Kitchenpop {
+    height: 500px;
+    width: 1000px;
+    position: absolute;
+    top: 50px;
+    left: -50px;
+    display: none;
+    background-color: white;
+    z-index: -1;
+  }
+  #sortbutton{
+    position: absolute;
+    margin-left: 1170px;
+    margin-top: 10px;
+  }
+  #myInput{
+    margin-top: 10px;
+    margin-left: 1300px;
+    position:relative;
+    width: 200px;
+  }
+  .pro{
+    width:23%;
+    height: 300px;
+    min-width:250px;
+    padding: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow:20px 20px 30px rgba(0,0,0,0.02) ;
+    margin:15px 15px;
+    display: inline-block;
+    float: left;
+  }
+  #MasterBed_product{
+    text-align: center;
+    margin-top: 0px;
+  }
+  #MasterBed_product .container{
+    display: flex;
+   /*justify-content:space-between;*/
+    margin-top: 50px;
+    padding-top :50px;
+    padding-left: 5px;
+    flex-wrap: wrap;
+    overflow: hidden;
+    background-image:url('signup.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #MasterBed_product .product{
+    width:20%;
+    min-width:250px;
+    padding-top: 10px 0px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow:20px 20px 30px rgba(0,0,0,0.02) ;
+    margin:15px 30px;
+    display: inline-block;
+    float: left;
+    background-color: #fff;
+  }
+  .body{
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -40px;
+    bottom: -40px;
+    width: auto;
+    height: auto;
+    background-image:url("signup.jpg");
+    background-size: cover;
+    -webkit-filter: blur(5px);
+    z-index: 0;
+  }
+  #MasterBed_product .product img{
+    width:100%;
+    height:75%;
+    border-radius: 20px;
+  }
+  #MasterBed_product .product .description{
+    text-align: start;
+  }
+  
+  #MasterBed_product1{
+    text-align: center;
+    margin-top: 50px;
+  }
+  #MasterBed_product1 .container1{
+    display: flex;
+   /* justify-content:space-between;*/
+    margin-top: 0px;
+    padding-top :0px;
+    padding-left: 10px;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+  #MasterBed_product1 .product1{
+    width:23%;
+    min-width:250px;
+    padding-top: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow:20px 20px 30px rgba(0,0,0,0.02) ;
+    margin:15px 15px;
+    display: inline-block;
+    float: left;
+    background-color: #fff;
+  }
+  #MasterBed_product1 .product1 img{
+    width:100%;
+    height:75%;
+    border-radius: 20px;
+  }
+  #MasterBed_product1 .product1 .description1{
+    text-align: start;
+  }
+  #Dining_product{
+    text-align: center;
+    margin-top: 100px;
+  }
+  #Dining_product .container{
+    display: flex;
+    justify-content:space-between;
+    padding-top :20px;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+  #Dining_product .product{
+    width:23%;
+    min-width:250px;
+    padding: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow:20px 20px 30px rgba(0,0,0,0.02) ;
+    margin:15px 0;
+    display: inline-block;
+    float: left;
+  }
+  #Dining_product .product img{
+    width:100%;
+    border-radius: 20px;
+  }
+  #Dining_product .product .description{
+    text-align: start;
+  }
+  
+  #Drawing_product{
+    text-align: center;
+    margin-top: 100px;
+  }
+  #Drawing_product .container{
+     display: flex;
+    justify-content:space-between;
+    padding-top :20px;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+  #Drawing_product .product{
+    width:23%;
+    min-width:250px;
+    padding: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow:20px 20px 30px rgba(0,0,0,0.02) ;
+    margin:15px 0;
+    display: inline-block;
+    float: left;
+  }
+  #Drawing_product .product img{
+    width:100%;
+    border-radius: 20px;
+  }
+  #Drawing_product .product .description{
+    text-align: start;
+  }
+  
+  #Kitchen_product{
+    text-align: center;
+    margin-top: 100px;
+  }
+  #Kitchen_product .container{
+    display: flex;
+    justify-content:space-between;
+    padding-top :20px;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+  #Kitchen_product .product{
+    width:23%;
+    min-width:250px;
+    padding: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow:20px 20px 30px rgba(0,0,0,0.02) ;
+    margin:15px 0;
+    display: inline-block;
+    float: left;
+  }
+  #Kitchen_product .product img{
+    width:100%;
+    border-radius: 20px;
+  }
+  #Kitchen_product .product .description{
+    text-align: start;
+  }
+  .navbar {
+    width: 90%;
+    margin: 10px;
+    padding: 35px 0;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    position:absolute;
+    z-index: 2;
+    height: 20px;
+  }
+  
+  .navbar {
+    width: 90%;
+    margin: 10px;
+    padding: 35px 0;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    position:absolute;
+    z-index: 2;
+    height: 20px;
+  }
+  
+  .navbar ul div {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position:relative;
+    z-index: 1;
+  }
+  
+  .navbar ul li a {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .navbar ul li a::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background-color: aqua;
+    position:absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+  }
+  
+  .navbar ul li a:hover::after {
+    width: 100%;
+  }
+  /* .master_bedpop{
+      position:absolute;
+      z-index: -1;
+   }*/
+  .abc {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    background-color: white;
+    width: 105%;
+    height: 50%;
+    margin: auto;
+    padding: 35px 0;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /*.A{
+      list-style: none;
+      display: inline-block;
+      margin:2px 2px;
+      position:relative;
+  }
+  .menus {
+    float: left;
+  }*/
+  
+  .abc ul li a {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .frontpage {
+    position: relative;
+    margin-top: 5px;
+  }
+  
+  .img1 {
+    position: relative;
+    margin-top: 100px;
+  }
+  
+  .companyname {
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-large;
+  }
+  
+  .logsignup {
+    padding-left: 50px;
+  }
+  
+  .top {
+    background-color: chocolate;
+    height: 65px;
+    text-align: center;
+    z-index: 999;
+    position: sticky;
+  }
+  
+  .parentlogin {
+    display: flex;
+  }
+  .formlayout {
+    width: 490px;
+    height: 520px;
+    position: relative;
+    margin-top: 23px;
+    margin-left: 12px;
+    background-color: rgb(142, 124, 65);
+    padding: 10px;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .loginimage {
+    display: inline-block;
+  }
+  
+  .input-field {
+    width: 400px;
+    padding: 18px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+  }
+  
+  .checkbox {
+    margin: 40px 10px 34px 0;
+  }
+  
+  span {
+    color: #777;
+    font-size: 22px;
+    bottom: 68px;
+    position: absolute;
+  }
+  
+  .loginform {
+    top: 150;
+    position: absolute;
+    width: 280px;
+  }
+  
+  .submit-button {
+    width: 300px;
+    padding: 10px 50px;
+    cursor: pointer;
+    display: block;
+    margin: 50px 50px;
+    background-color: white;
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+  }
+  
+  #abc {
+    left: 50px;
+  }
+  
+  .para1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-large;
+  }
+  
+  .para2 {
+    margin: 0 150px;
+    font-weight: bold;
+    font-size: xx-large;
+  }
+  .header{
+   /* box-shadow: 20px 20px 34px rgba(0,0,0,0.3);*/
+  }
+  #featured_product{
+    text-align: center;
+    margin-top: 100px;
+  }
+  #featured_product .container{
+    display: flex;
+    justify-content:space-between;
+    padding-top :20px;
+    flex-wrap: wrap;
+  }
+  #featured_product .product{
+    width:23%;
+    min-width:250px;
+    padding: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow:20px 20px 30px rgba(0,0,0,0.02) ;
+    margin:15px 0;
+    display: inline-block;
+  }
+  #featured_product .product img{
+    width:100%;
+    border-radius: 20px;
+  }
+  #featured_product .product .description{
+    text-align: start;
+  }
+
+  .navbar ul div {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position:relative;
+    z-index: 1;
+  }
+  
+  .navbar ul li a {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .navbar ul li a::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background-color: aqua;
+    position:absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+  }
+  
+  .navbar ul li a:hover::after {
+    width: 100%;
+  }
+  /* .master_bedpop{
+      position:absolute;
+      z-index: -1;
+   }*/
+  .abc {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    background-color: white;
+    width: 105%;
+    height: 50%;
+    margin: auto;
+    padding: 35px 0;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /*.A{
+      list-style: none;
+      display: inline-block;
+      margin:2px 2px;
+      position:relative;
+  }
+  .menus {
+    float: left;
+  }*/
+  
+  .abc ul li a {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .frontpage {
+    position: relative;
+    margin-top: 5px;
+  }
+  
+  .img1 {
+    position: relative;
+    margin-top: 100px;
+  }
+  
+  .companyname {
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-large;
+  }
+  
+  .logsignup {
+    padding-left: 50px;
+  }
+  
+  .top {
+    background-color: chocolate;
+    height: 65px;
+    text-align: center;
+    z-index: 999;
+    position: sticky;
+  }
+  
+  .parentlogin {
+    display: flex;
+  }
+  
+  #abc {
+    left: 50px;
+  }
+  
+  .para1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-large;
+  }
+  
+  .para2 {
+    margin: 0 150px;
+    font-weight: bold;
+    font-size: xx-large;
+  }
+
+ 
