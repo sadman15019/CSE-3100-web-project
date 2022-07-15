@@ -98,14 +98,16 @@
   }
   #sortbutton{
     position: absolute;
-    margin-left: 1170px;
+    margin-left: 1000px;
     margin-top: 10px;
   }
   #myInput{
-    margin-top: 10px;
+    margin-top: 20px;
+    height: 30px;
     margin-left: 1300px;
     position:relative;
     width: 200px;
+    border: #00B4CC;
   }
   .pro{
     width:23%;
@@ -132,9 +134,10 @@
     padding-left: 5px;
     flex-wrap: wrap;
     overflow: hidden;
-    background-image:url('signup.jpg');
+    /*background-image:url('signup.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;*/
+    background-color: #eef3f3;
   }
   #MasterBed_product .product{
     width:20%;
@@ -236,6 +239,40 @@
     text-align: start;
   }
   
+  #Dining_product1{
+    text-align: center;
+    margin-top: 50px;
+  }
+  #diningcontainer1{
+    display: flex;
+   /* justify-content:space-between;*/
+    margin-top: 0px;
+    padding-top :0px;
+    padding-left: 10px;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+  #Dining_product1 .product2{
+    width:23%;
+    min-width:250px;
+    padding-top: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow:20px 20px 30px rgba(0,0,0,0.02) ;
+    margin:15px 15px;
+    display: inline-block;
+    float: left;
+    background-color: #fff;
+  }
+  #Dining_product1 .product2 img{
+    width:100%;
+    height:75%;
+    border-radius: 20px;
+  }
+  #Dining_product1 .product2 .description1{
+    text-align: start;
+  }
   #Drawing_product{
     text-align: center;
     margin-top: 100px;
@@ -267,6 +304,41 @@
     text-align: start;
   }
   
+  
+  #Drawing_product1{
+    text-align: center;
+    margin-top: 50px;
+  }
+  #drawingcontainer1{
+    display: flex;
+   /* justify-content:space-between;*/
+    margin-top: 0px;
+    padding-top :0px;
+    padding-left: 10px;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+  #Drawing_product1 .product3{
+    width:23%;
+    min-width:250px;
+    padding-top: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow:20px 20px 30px rgba(0,0,0,0.02) ;
+    margin:15px 15px;
+    display: inline-block;
+    float: left;
+    background-color: #fff;
+  }
+  #Drawing_product1 .product3 img{
+    width:100%;
+    height:75%;
+    border-radius: 20px;
+  }
+  #Dining_product1 .product3 .description1{
+    text-align: start;
+  }
   #Kitchen_product{
     text-align: center;
     margin-top: 100px;
@@ -295,6 +367,39 @@
     border-radius: 20px;
   }
   #Kitchen_product .product .description{
+    text-align: start;
+  }
+  #Kitchen_product1{
+    text-align: center;
+    margin-top: 50px;
+  }
+  #kitchencontainer1{
+    display: flex;
+    margin-top: 0px;
+    padding-top :0px;
+    padding-left: 10px;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+  #Kitchen_product1 .product4{
+    width:23%;
+    min-width:250px;
+    padding-top: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow:20px 20px 30px rgba(0,0,0,0.02) ;
+    margin:15px 15px;
+    display: inline-block;
+    float: left;
+    background-color: #fff;
+  }
+  #Kitchen_product1 .product4 img{
+    width:100%;
+    height:75%;
+    border-radius: 20px;
+  }
+  #kitchen_product1 .product4 .description1{
     text-align: start;
   }
   .navbar {
@@ -630,4 +735,211 @@
     font-size: xx-large;
   }
 
+ /**footer*/
+
+footer{
+  margin-top: 100px;
+font-family: 'Montserrat Alternates', sans-serif;
+  padding: 0;
+  background: #000;
+  width: 100%;
+  min-height: 300px;
+  max-height: auto;
+background-image: linear-gradient(to right top, #161616, #191919, #1b1b1b, #1e1e1e, #212121);
+  clear: both;
+}
+footer .footer-wrap{
+  width: 80%;
+  margin: 0 auto;
+  padding-left: 9%;
+  color: white;
+}
+.widgetFooter{
+  width: calc(85%/3);
+  height: auto;
+  float: left;
+  padding: 2.5%;
+  text-align: left;
+}
+h4.uppercase{
+  text-transform: uppercase;
+  font-family: Arial;
+  font-size: 20px;
+}
+ul#footerUsefulLink, ul#footerMediaLinks{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  line-height: 40px;
+  text-transform: capitalize;
+}
+ul#footerUsefulLink li, ul#footerMediaLinks li{
+  cursor: pointer;
+  /* transition: border-bottom 3s ease-in; */
+}
+ul#footerUsefulLink li:hover .usefulLinksIcons, ul#footerUsefulLink li:hover a{
+   color: #00CED1;
+   /* border-bottom: 1px solid red; */
+}
+ul#footerMediaLinks li:hover span.fb, ul#footerMediaLinks li:hover a.fb { color: #3b5998; }
+ul#footerMediaLinks li:hover span.twit, ul#footerMediaLinks li:hover a.twit { color: #1DA1F2; }
+ul#footerMediaLinks li:hover span.insta, ul#footerMediaLinks li:hover a.insta { color: #ffc838; }
+ul#footerMediaLinks li:hover span.git, ul#footerMediaLinks li:hover a.git { color: #f1502f; }
  
+div#footerLogo img{
+  width: 50%;
+  margin: 25% 0;
+}
+ 
+div.footerCopy{
+  clear: both;
+  color: white;
+  text-align: center;
+  padding-bottom: 5px;
+  border-top: 1px solid #ccc;
+  background: #262626;
+}
+ 
+@media (max-width:800px){
+  footer .footer-wrap{
+    width: 100%;
+    padding: 0;
+  }
+  .widgetFooter:not(:nth-of-type(2)){
+    width: calc(90%/2);
+    text-align: center;
+    font-size: 0.9em;
+  }
+  .widgetFooter:nth-of-type(2){
+    display: none;
+  }
+  div.footerCopy{
+    font-size: 0.8em;
+  }
+}
+@media (max-width:600px){
+  .widgetFooter:not(:nth-of-type(2)){
+    text-align: left;
+  }
+}
+@media (max-width:500px){
+  footer{
+    min-height: auto;
+  }
+  .widgetFooter:not(:nth-of-type(2)){
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+  ul#footerUsefulLink, ul#footerMediaLinks{
+    display: flex;
+  }
+  ul#footerUsefulLink li, ul#footerMediaLinks li{
+    float: left;
+    flex: 1;
+    text-align: center;
+    font-size: 1.5em;
+  }
+  ul#footerUsefulLink li a, ul#footerMediaLinks li a{
+    display: none;
+  }
+  ul#footerUsefulLink li:hover, ul#footerUsefulLink li:hover .usefulLinksIcons, ul#footerUsefulLink li:hover a{
+     color: white;
+     background-color: #00CED1;
+  }
+  ul#footerMediaLinks li.media1:hover, ul#footerMediaLinks li:hover span.fb, ul#footerMediaLinks li:hover a.fb { background-color: #3b5998; color: white; }
+  ul#footerMediaLinks li.media2:hover, ul#footerMediaLinks li:hover span.twit, ul#footerMediaLinks li:hover a.twit { background-color: #1DA1F2; color: white; }
+  ul#footerMediaLinks li.media3:hover, ul#footerMediaLinks li:hover span.insta, ul#footerMediaLinks li:hover a.insta { background-color: #ffc838; color: white; }
+  ul#footerMediaLinks li.media4:hover, ul#footerMediaLinks li:hover span.git, ul#footerMediaLinks li:hover a.git { background-color: #f1502f; color: white; }
+}
+
+
+/**button**/
+html, body {
+  height: 100%;
+}
+
+#sort {
+ /* min-width: 300px;*/
+  min-height: 60px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: #4FD1C5;
+background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  }
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+/**searchbar**/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

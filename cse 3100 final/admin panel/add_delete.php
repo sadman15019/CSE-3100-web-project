@@ -3,9 +3,7 @@ include 'database_connection.php';
 if(isset($_POST['add_product']) && isset($_FILES['product_image'])){
 $product_category=$_POST['category'];
 $product_name=$_POST['product_name'];
-$t1=$_POST['product_price'];
-$t2="$";
-$product_price=$t2.$t1;
+$product_price=$_POST['product_price'];
 $product_image=$_FILES['product_image']['name'];
 $product_image_tmp_name=$_FILES['product_image']['tmp_name'];
 $product_image_folder='uploaded_image/'.$product_image;
@@ -32,7 +30,7 @@ else
     }
   }
     $id=$id+1;
- $insert="insert into masterbed_product(id,name,price,image) values ($id,'$product_name','$product_price','$product_image')";
+ $insert="insert into masterbed_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
  $upload=mysqli_query($connection,$insert);
 }
 else if($product_category=="Drawing"){
@@ -46,7 +44,7 @@ else if($product_category=="Drawing"){
       }
     }
       $id=$id+1;
-   $insert="insert into drawing_product(id,name,price,image) values ($id,'$product_name','$product_price','$product_image')";
+   $insert="insert into drawing_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
    $upload=mysqli_query($connection,$insert);
   }
   else if($product_category=="Dining"){
@@ -60,7 +58,7 @@ else if($product_category=="Drawing"){
       }
     }
       $id=$id+1;
-   $insert="insert into dining_product(id,name,price,image) values ($id,'$product_name','$product_price','$product_image')";
+   $insert="insert into dining_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
    $upload=mysqli_query($connection,$insert);
   }
   else if($product_category=="Kitchen"){
@@ -74,7 +72,7 @@ else if($product_category=="Drawing"){
       }
     }
       $id=$id+1;
-   $insert="insert into kitchen_product(id,name,price,image) values ($id,'$product_name','$product_price','$product_image')";
+   $insert="insert into kitchen_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
    $upload=mysqli_query($connection,$insert);
   }
 }
@@ -145,7 +143,7 @@ if(isset($_GET['delete'])){
         <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
         <div class="description">
           <h6><?php echo $row['name']; ?></h6>
-          <h4><?php echo $row['price']; ?></h4>
+          <h4><?php echo "$".$row['price']; ?></h4>
           <a href="add_delete.php?delete=<?php echo $row['id']; ?>" class="btn"> delete </a>
           <a href="update.php?edit=<?php echo $row['id']; ?>" class="btn"> edit </a>
         </div>
@@ -163,8 +161,8 @@ if(isset($_GET['delete'])){
       <div class="product">
         <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
         <div class="description">
-          <h6><?php echo $row['name']; ?></h6>
-          <h4><?php echo $row['price']; ?></h4>
+          <h6><?php echo "$".$row['name']; ?></h6>
+          <h4><?php echo "$".$row['price']; ?></h4>
           <a href="add_delete.php?delete=<?php echo $row['id']; ?>" class="btn"> delete </a>
           <a href="update.php?edit=<?php echo $row['id']; ?>" class="btn"> edit </a>
         </div>
@@ -181,8 +179,8 @@ if(isset($_GET['delete'])){
       <div class="product">
         <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
         <div class="description">
-          <h6><?php echo $row['name']; ?></h6>
-          <h4><?php echo $row['price']; ?></h4>
+          <h6><?php echo "$".$row['name']; ?></h6>
+          <h4><?php echo "$".$row['price']; ?></h4>
           <a href="add_delete.php?delete=<?php echo $row['id']; ?>" class="btn"> delete </a>
           <a href="update.php?edit=<?php echo $row['id']; ?>" class="btn"> edit </a>
         </div>
@@ -198,8 +196,8 @@ if(isset($_GET['delete'])){
       <div class="product">
         <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
         <div class="description">
-          <h6><?php echo $row['name']; ?></h6>
-          <h4><?php echo $row['price']; ?></h4>
+          <h6><?php echo "$".$row['name']; ?></h6>
+          <h4><?php echo "$".$row['price']; ?></h4>
           <a href="add_delete.php?delete=<?php echo $row['id']; ?>" class="btn"> delete </a>
           <a href="update.php?edit=<?php echo $row['id']; ?>" class="btn"> edit </a>
         </div>

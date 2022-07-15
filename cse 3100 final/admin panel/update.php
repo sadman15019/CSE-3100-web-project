@@ -4,9 +4,7 @@ $id = $_GET['edit'];
 if(isset($_POST['update_product']) && isset($_FILES['product_image'])){
 $product_category=$_POST['category'];
 $product_name=$_POST['product_name'];
-$t1=$_POST['product_price'];
-$t2="$";
-$product_price=$t2.$t1;
+$product_price=$_POST['product_price'];
 $product_image=$_FILES['product_image']['name'];
 $product_image_tmp_name=$_FILES['product_image']['tmp_name'];
 $product_image_folder='uploaded_image/'.$product_image;
@@ -23,24 +21,24 @@ else if(strcmp($product_category,"Default")==0)
 else
 {
     if($product_category=="Masterbed"){
- $insert="UPDATE masterbed_product SET name='$product_name', price='$product_price', image='$product_image'  WHERE id = '$id'";
+ $insert="UPDATE masterbed_product SET name='$product_name', price=$product_price, image='$product_image'  WHERE id = '$id'";
  $upload=mysqli_query($connection,$insert);
- header('location:abc.php');
+ header('location:add_delete.php');
 }
 else if($product_category=="Drawing"){
-    $insert="UPDATE drawing_product SET name='$product_name', price='$product_price', image='$product_image'  WHERE id = '$id'";
+    $insert="UPDATE drawing_product SET name='$product_name', price=$product_price, image='$product_image'  WHERE id = '$id'";
     $upload=mysqli_query($connection,$insert);
-    header('location:abc.php');
+    header('location:add_delete.php');
   }
   else if($product_category=="Dining"){
-    $insert="UPDATE dining_product SET name='$product_name', price='$product_price', image='$product_image'  WHERE id = '$id'";
+    $insert="UPDATE dining_product SET name='$product_name', price=$product_price, image='$product_image'  WHERE id = '$id'";
     $upload=mysqli_query($connection,$insert);
-    header('location:abc.php');
+    header('location:add_delete.php');
   }
   else if($product_category=="Kitchen"){
-    $insert="UPDATE kitchen_product SET name='$product_name', price='$product_price', image='$product_image'  WHERE id = '$id'";
+    $insert="UPDATE kitchen_product SET name='$product_name', price=$product_price, image='$product_image'  WHERE id = '$id'";
  $upload=mysqli_query($connection,$insert);
- header('location:abc.php');
+ header('location:add_delete.php');
   }
 }
 }?>

@@ -34,8 +34,10 @@ if(isset($_GET['delete'])){
 
             <div class="products">
                 <?php
+                $cnt=0;
+                $total=0;
                 $select1 = mysqli_query($connection, "SELECT * FROM cart");
-                while ($row = mysqli_fetch_assoc($select1)) { ?>
+                while ($row = mysqli_fetch_assoc($select1)) { $cnt=$cnt+1; $total=$total+$row['price'];?>
 
                     <div class="product">
 
@@ -44,7 +46,7 @@ if(isset($_GET['delete'])){
 
                             <h3 class="product-name"><?php echo $row['name']; ?></h3>
 
-                            <h4 class="product-price"><?php echo $row['price']; ?></h4>
+                            <h4 class="product-price"><?php echo "$".$row['price']; ?></h4>
 
                         <?php /*   <p class="product-quantity"><?php echo $row['quantity']; ?></p>*/?>
 
@@ -68,7 +70,7 @@ if(isset($_GET['delete'])){
 
                 <span>Total Price</span>
 
-                <span>₹ 3,000</span>
+                <span><?php echo $total; ?></span>
 
             </p>
 
@@ -76,17 +78,10 @@ if(isset($_GET['delete'])){
 
                 <span>Number of Items</span>
 
-                <span>2</span>
+                <span><?php echo $cnt?></span>
 
             </p>
 
-            <p>
-
-                <span>You Save</span>
-
-                <span>₹ 1,000</span>
-
-            </p>
 
             <a href="#">Proceed to Checkout</a>
 
