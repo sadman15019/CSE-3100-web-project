@@ -511,11 +511,12 @@
   }
   
   .top {
-    background-color: chocolate;
+    background-color: rgb(57, 48, 46);
     height: 65px;
     text-align: center;
     z-index: 999;
     position: sticky;
+    color: white; 
   }
   
   .parentlogin {
@@ -707,13 +708,7 @@
     padding-left: 50px;
   }
   
-  .top {
-    background-color: chocolate;
-    height: 65px;
-    text-align: center;
-    z-index: 999;
-    position: sticky;
-  }
+ 
   
   .parentlogin {
     display: flex;

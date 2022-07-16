@@ -10,13 +10,13 @@ if(isset($_GET['addtocartbed'])){
         $name=$row['name'];
         $price=$row['price'];
         $image=$row['image'];
-        $insert="insert into cart(id,name,price,image) values ($id,'$name','$price','$image')";
+        $insert="insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
         $upload=mysqli_query($connection,$insert);
     }
     header('location:cart/cart.php');}
     else
     {
-        header('location:masterbed.php');
+        header('location:home.php');
     }
  }
  else if(isset($_GET['addtocartdining'])){
@@ -28,13 +28,13 @@ if(isset($_GET['addtocartbed'])){
         $name=$row['name'];
         $price=$row['price'];
         $image=$row['image'];
-        $insert="insert into cart(id,name,price,image) values ($id,'$name','$price','$image')";
+        $insert="insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
         $upload=mysqli_query($connection,$insert);
     }
     header('location:cart/cart.php');}
     else
     {
-        header('location:masterbed.php');
+        header('location:home.php');
     }
  }
  else if(isset($_GET['addtocartdrawing'])){
@@ -46,13 +46,13 @@ if(isset($_GET['addtocartbed'])){
         $name=$row['name'];
         $price=$row['price'];
         $image=$row['image'];
-        $insert="insert into cart(id,name,price,image) values ($id,'$name','$price','$image')";
+        $insert="insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
         $upload=mysqli_query($connection,$insert);
     }
     header('location:cart/cart.php');}
     else
     {
-        header('location:masterbed.php');
+        header('location:home.php');
     }
  }
  else if(isset($_GET['addtocartkitchen'])){
@@ -64,13 +64,13 @@ if(isset($_GET['addtocartbed'])){
         $name=$row['name'];
         $price=$row['price'];
         $image=$row['image'];
-        $insert="insert into cart(id,name,price,image) values ($id,'$name','$price','$image')";
+        $insert="insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
         $upload=mysqli_query($connection,$insert);
     }
     header('location:cart/cart.php');}
     else
     {
-        header('location:masterbed.php');
+        header('location:home.php');
     }
  }
 
@@ -120,7 +120,7 @@ if(isset($_GET['addtocartbed'])){
                         </div>
                     </div>
                     <div id="Dining" class="Dining">
-                        <li class=" list"><a href="#" class="menu2">Dining</a></li>
+                        <li class=" list"><a href="dining.php" class="menu2">Dining</a></li>
                         <div id="Diningpop" class="Diningpop">
                             <section id="Dining_product1">
                                 <div id="diningcontainer1" class="container2">
@@ -200,20 +200,23 @@ if(isset($_GET['addtocartbed'])){
                     </div>
                 </ul>
             </div>
-            <div class="logsignup">
+            <div style="margin-right:0px;" class="logsignup">
                 <ul class="C">
                     <div class="Login">
-                        <li class="list"><a href="http://localhost/cse 3100 final/login/login.php" class="Login">Login</a></li>
+                        <li class="list"><a href="http://localhost/cse 3100 final/login/loginas.php" class="Login">Login</a></li>
                     </div>
                     <div class="Signup">
                         <li class="list"><a href="http://localhost/cse 3100 final/login/signup.php" class="Signup">Signup</a></li>
+                    </div>
+                    <div class="Logout">
+                        <li class="list"><a href="http://localhost/cse 3100 final/login/logout.php" class="Logout">Logout</a></li>
                     </div>
                 </ul>
             </div>
         </div>
     </div>
     <div class="frontpage">
-        <img class="img1" src="images/background.jpg" width="1900" height="400">
+        <img class="img1" src="images/back.jpg" width="1900" height="450">
     </div>
     <br>
     <section id="featured_product">

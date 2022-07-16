@@ -10,13 +10,13 @@ if(isset($_GET['addtocartbed'])){
         $name=$row['name'];
         $price=$row['price'];
         $image=$row['image'];
-        $insert="insert into cart(id,name,price,image) values ($id,'$name','$price','$image')";
+        $insert="insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
         $upload=mysqli_query($connection,$insert);
     }
     header('location:cart/cart.php');}
     else
     {
-        header('location:masterbed.php');
+        header('location:login/login.php');
     }
  }
  else if(isset($_GET['addtocartdining'])){
@@ -28,13 +28,13 @@ if(isset($_GET['addtocartbed'])){
         $name=$row['name'];
         $price=$row['price'];
         $image=$row['image'];
-        $insert="insert into cart(id,name,price,image) values ($id,'$name','$price','$image')";
+        $insert="insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
         $upload=mysqli_query($connection,$insert);
     }
     header('location:cart/cart.php');}
     else
     {
-        header('location:masterbed.php');
+      header('location:login/login.php');
     }
  }
  else if(isset($_GET['addtocartdrawing'])){
@@ -46,13 +46,13 @@ if(isset($_GET['addtocartbed'])){
         $name=$row['name'];
         $price=$row['price'];
         $image=$row['image'];
-        $insert="insert into cart(id,name,price,image) values ($id,'$name','$price','$image')";
+        $insert="insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
         $upload=mysqli_query($connection,$insert);
     }
     header('location:cart/cart.php');}
     else
     {
-        header('location:masterbed.php');
+      header('location:login/login.php');
     }
  }
  else if(isset($_GET['addtocartkitchen'])){
@@ -64,13 +64,13 @@ if(isset($_GET['addtocartbed'])){
         $name=$row['name'];
         $price=$row['price'];
         $image=$row['image'];
-        $insert="insert into cart(id,name,price,image) values ($id,'$name','$price','$image')";
+        $insert="insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
         $upload=mysqli_query($connection,$insert);
     }
     header('location:cart/cart.php');}
     else
     {
-        header('location:masterbed.php');
+      header('location:login/login.php');
     }
  }
 ?>
@@ -95,7 +95,7 @@ if(isset($_GET['addtocartbed'])){
             <div class="menus">
                 <ul class="A">
                     <div id="Master_Bed" class="Master_Bed">
-                        <li class="list"><a href="#" class="menu1">Master Bed</a></li>
+                        <li class="list"><a href="masterbed.php" class="menu1">Master Bed</a></li>
                         <div id="Master_bedpop" class="Master_bedpop">
                             <section id="MasterBed_product1">
                                 <div id="masterbedcontainer1" class="container1">
@@ -118,7 +118,7 @@ if(isset($_GET['addtocartbed'])){
                         </div>
                     </div>
                     <div id="Dining" class="Dining">
-                        <li class=" list"><a href="#" class="menu2">Dining</a></li>
+                        <li class=" list"><a href="dining.php" class="menu2">Dining</a></li>
                         <div id="Diningpop" class="Diningpop">
                         </div>
                     </div>
@@ -141,13 +141,16 @@ if(isset($_GET['addtocartbed'])){
                     </div>
                 </ul>
             </div>
-            <div class="logsignup">
+            <div style="margin-right:0px;" class="logsignup">
                 <ul class="C">
                     <div class="Login">
-                        <li class="list"><a href="http://localhost/cse 3100 final/login/login.php" class="Login">Login</a></li>
+                        <li class="list"><a href="http://localhost/cse 3100 final/login/loginas.php" class="Login">Login</a></li>
                     </div>
                     <div class="Signup">
-                        <li class="list"><a href="signup.html" class="Signup">Signup</a></li>
+                        <li class="list"><a href="http://localhost/cse 3100 final/login/signup.php" class="Signup">Signup</a></li>
+                    </div>
+                    <div class="Logout">
+                        <li class="list"><a href="http://localhost/cse 3100 final/login/logout.php" class="Logout">Logout</a></li>
                     </div>
                 </ul>
             </div>
@@ -160,7 +163,7 @@ if(isset($_GET['addtocartbed'])){
         <section id="MasterBed_product">
         <div style="font-size: 40px;color:blue; margin-top:50px; display:relative;">MasterBed Products</div>
             <div id="sortbutton"><button type="submit" id="sort" onclick="sortitem('MasterBed_product')">sort by price</button></div>
-            <input type="text" id="myInput" onkeyup="myFunction('MasterBed_product')" placeholder="Search for items.." title="Type in a name">
+            <input style="margin-right:20px ;"  type="text" id="myInput" onkeyup="myFunction('MasterBed_product')" placeholder="Search for items.." title="Type in a name">
             <div id="masterbedcontainer" class="container">
                 <?php
                 $select1 = mysqli_query($connection, "SELECT * FROM masterbed_product");

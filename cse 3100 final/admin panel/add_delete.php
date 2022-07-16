@@ -77,11 +77,26 @@ else if($product_category=="Drawing"){
   }
 }
 }
-if(isset($_GET['delete'])){
-    $id = $_GET['delete'];
+if(isset($_GET['deletebed'])){
+    $id = $_GET['deletebed'];
     mysqli_query($connection, "DELETE FROM masterbed_product WHERE id = $id");
     header('location:add_delete.php');
  }
+ if(isset($_GET['deletedining'])){
+  $id = $_GET['deletedining'];
+  mysqli_query($connection, "DELETE FROM dining_product WHERE id = $id");
+  header('location:add_delete.php');
+}
+if(isset($_GET['deletedrawing'])){
+  $id = $_GET['deletedrawing'];
+  mysqli_query($connection, "DELETE FROM drawing_product WHERE id = $id");
+  header('location:add_delete.php');
+}
+if(isset($_GET['deletebed'])){
+  $id = $_GET['deletekitchen'];
+  mysqli_query($connection, "DELETE FROM kitchen_product WHERE id = $id");
+  header('location:add_delete.php');
+}
 ?>
 
 
@@ -144,8 +159,9 @@ if(isset($_GET['delete'])){
         <div class="description">
           <h6><?php echo $row['name']; ?></h6>
           <h4><?php echo "$".$row['price']; ?></h4>
-          <a href="add_delete.php?delete=<?php echo $row['id']; ?>" class="btn"> delete </a>
-          <a href="update.php?edit=<?php echo $row['id']; ?>" class="btn"> edit </a>
+          <a href="add_delete.php?deletebed=<?php echo $row['id']; ?>" class="btn"> delete </a>
+          <?php $a1="masterbed_product";?>
+          <a href="update.php?edit=<?php echo $row['id'];?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
         </div>
       </div>
       <?php } ?>
@@ -163,8 +179,9 @@ if(isset($_GET['delete'])){
         <div class="description">
           <h6><?php echo "$".$row['name']; ?></h6>
           <h4><?php echo "$".$row['price']; ?></h4>
-          <a href="add_delete.php?delete=<?php echo $row['id']; ?>" class="btn"> delete </a>
-          <a href="update.php?edit=<?php echo $row['id']; ?>" class="btn"> edit </a>
+          <a href="add_delete.php?deletedrawing=<?php echo $row['id']; ?>" class="btn"> delete </a>
+          <?php $a1="drawing_product";?>
+          <a href="update.php?edit=<?php echo $row['id'];?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
         </div>
       </div>
       <?php } ?>
@@ -181,8 +198,9 @@ if(isset($_GET['delete'])){
         <div class="description">
           <h6><?php echo "$".$row['name']; ?></h6>
           <h4><?php echo "$".$row['price']; ?></h4>
-          <a href="add_delete.php?delete=<?php echo $row['id']; ?>" class="btn"> delete </a>
-          <a href="update.php?edit=<?php echo $row['id']; ?>" class="btn"> edit </a>
+          <a href="add_delete.php?deletedining=<?php echo $row['id']; ?>" class="btn"> delete </a>
+          <?php $a1="dining_product";?>
+          <a href="update.php?edit=<?php echo $row['id'];?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
         </div>
       </div>
       <?php } ?>
@@ -198,8 +216,9 @@ if(isset($_GET['delete'])){
         <div class="description">
           <h6><?php echo "$".$row['name']; ?></h6>
           <h4><?php echo "$".$row['price']; ?></h4>
-          <a href="add_delete.php?delete=<?php echo $row['id']; ?>" class="btn"> delete </a>
-          <a href="update.php?edit=<?php echo $row['id']; ?>" class="btn"> edit </a>
+          <a href="add_delete.php?deletekitchen=<?php echo $row['id']; ?>" class="btn"> delete </a>
+          <?php $a1="kitchen_product";?>
+          <a href="update.php?edit=<?php echo $row['id'];?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
         </div>
       </div>
       <?php } ?>

@@ -1,6 +1,7 @@
 <?php
 include 'database_connection.php';
 $id = $_GET['edit'];
+$category=$_GET['edit2'];
 if(isset($_POST['update_product']) && isset($_FILES['product_image'])){
 $product_category=$_POST['category'];
 $product_name=$_POST['product_name'];
@@ -62,8 +63,8 @@ else if($product_category=="Drawing"){
   <div class="container1">
     <div class="admin-product-form-container">
     <?php
-      
-      $select = mysqli_query($connection, "SELECT * FROM masterbed_product WHERE id = '$id'");
+    
+      $select = mysqli_query($connection, "SELECT * FROM $category WHERE id = '$id'");
       while($row = mysqli_fetch_assoc($select)){
 
    ?>

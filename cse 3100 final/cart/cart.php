@@ -41,7 +41,7 @@ if(isset($_GET['delete'])){
 
                     <div class="product">
 
-                        <img src="images/<?php echo $row['image']; ?>">
+                        <img src="cse 3100 final/images/<?php echo $row['image']; ?>">
                         <div class="product-info">
 
                             <h3 class="product-name"><?php echo $row['name']; ?></h3>

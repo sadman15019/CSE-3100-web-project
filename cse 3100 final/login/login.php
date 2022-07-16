@@ -1,4 +1,6 @@
 <?php
+session_start();
+session_destroy();
 $connection = mysqli_connect('localhost', 'root', '', 'sweet home');
 $a = "";
 $b = "";
@@ -23,17 +25,17 @@ if (isset($_POST['login'])) {
     if ($result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
         if ($email == $row['email'] && $password == $row['password']) {
-          setcookie('email', $email, time()+60*60*7, "/");
-          setcookie('password', $password, time()+60*60*7, "/");
+          setcookie('email', $email, time() + 60 * 60 * 7, "/");
+          setcookie('password', $password, time() + 60 * 60 * 7, "/");
           session_start();
           $_SESSION['email'] = $email;
           header('location:http://localhost/cse 3100 final/home.php');
         }
       }
-      $b="invalid email or password";
-      }
+      $b = "invalid email or password";
     }
   }
+}
 ?>
 
 <!DOCTYPE html>
@@ -72,16 +74,15 @@ if (isset($_POST['login'])) {
     </div>
   </form>
   <?php
-  if(isset($_COOKIE['email']) && isset($_COOKIE['password']))
-  {
-    $email=$_COOKIE['email'];
-    $password=$_COOKIE['password'];
+  if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
+    $email = $_COOKIE['email'];
+    $password = $_COOKIE['password'];
 
     echo "<script>
       document.getElementById('email').value='$email';
       document.getElementById('password').value='$password';
       </script>";
-  }?>
+  } ?>
 </body>
 
 </html>

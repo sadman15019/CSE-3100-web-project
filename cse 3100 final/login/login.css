@@ -66,6 +66,16 @@ body{
 	padding: 10px;
 	z-index: 2;
 }
+.login2{
+	position: absolute;
+	top: calc(50% - 75px);
+	left: calc(50% - 50px);
+	height: 150px;
+	width: 350px;
+	padding: 10px;
+	z-index: 2;
+}
+
 
 .login input[type=text]{
 	width: 250px;
@@ -107,6 +117,22 @@ body{
 	font-weight: 400;
 	padding: 6px;
 	margin-top: 10px;
+}
+
+.loginas{
+	width: 260px;
+	height: 35px;
+	background: rgb(100, 5, 49);
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #a18d6c;
+	font-family: 'Exo', sans-serif;
+	font-size: 30px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+	text-decoration: none;
 }
 
 .login input[type=button]:hover{
