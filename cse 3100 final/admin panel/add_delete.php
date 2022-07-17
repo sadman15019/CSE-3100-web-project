@@ -1,101 +1,100 @@
 <?php
 include 'database_connection.php';
-if(isset($_POST['add_product']) && isset($_FILES['product_image'])){
-$product_category=$_POST['category'];
-$product_name=$_POST['product_name'];
-$product_price=$_POST['product_price'];
-$product_image=$_FILES['product_image']['name'];
-$product_image_tmp_name=$_FILES['product_image']['tmp_name'];
-$product_image_folder='uploaded_image/'.$product_image;
-$img_size=$_FILES['product_image']['size'];
-$error=$_FILES['product_image']['error'];
-if(empty($product_price) || empty($product_name) || empty($product_image))
-{
-  echo 'please fill out all the fields';
-}
-else if(strcmp($product_category,"Default")==0)
-{
-    echo 'please select a category';
-}
-else
-{
-    if($product_category=="Masterbed"){
-  $id=0;
-  $sql = "SELECT id from masterbed_product";
-  $result = $connection->query($sql);
-  
-  if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-      $id=$row["id"];
-    }
-  }
-    $id=$id+1;
- $insert="insert into masterbed_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
- $upload=mysqli_query($connection,$insert);
-}
-else if($product_category=="Drawing"){
-    $id=0;
-    $sql = "SELECT id from drawing_product";
-    $result = $connection->query($sql);
-    
-    if ($result->num_rows > 0) {
-      while($row = $result->fetch_assoc()) {
-        $id=$row["id"];
+session_start();
+if (isset($_SESSION['id'])) {
+  if (isset($_POST['add_product']) && isset($_FILES['product_image'])) {
+    $product_category = $_POST['category'];
+    $product_name = $_POST['product_name'];
+    $product_price = $_POST['product_price'];
+    $product_image = $_FILES['product_image']['name'];
+    $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
+    $product_image_folder = 'uploaded_image/' . $product_image;
+    $img_size = $_FILES['product_image']['size'];
+    $error = $_FILES['product_image']['error'];
+    if (empty($product_price) || empty($product_name) || empty($product_image)) {
+      echo 'please fill out all the fields';
+    } else if (strcmp($product_category, "Default") == 0) {
+      echo 'please select a category';
+    } else {
+      if ($product_category == "Masterbed") {
+        $id = 0;
+        $sql = "SELECT id from masterbed_product";
+        $result = $connection->query($sql);
+
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            $id = $row["id"];
+          }
+        }
+        $id = $id + 1;
+        $insert = "insert into masterbed_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
+        $upload = mysqli_query($connection, $insert);
+      } else if ($product_category == "Drawing") {
+        $id = 0;
+        $sql = "SELECT id from drawing_product";
+        $result = $connection->query($sql);
+
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            $id = $row["id"];
+          }
+        }
+        $id = $id + 1;
+        $insert = "insert into drawing_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
+        $upload = mysqli_query($connection, $insert);
+      } else if ($product_category == "Dining") {
+        $id = 0;
+        $sql = "SELECT id from dining_product";
+        $result = $connection->query($sql);
+
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            $id = $row["id"];
+          }
+        }
+        $id = $id + 1;
+        $insert = "insert into dining_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
+        $upload = mysqli_query($connection, $insert);
+      } else if ($product_category == "Kitchen") {
+        $id = 0;
+        $sql = "SELECT id from kitchen_product";
+        $result = $connection->query($sql);
+
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            $id = $row["id"];
+          }
+        }
+        $id = $id + 1;
+        $insert = "insert into kitchen_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
+        $upload = mysqli_query($connection, $insert);
       }
     }
-      $id=$id+1;
-   $insert="insert into drawing_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
-   $upload=mysqli_query($connection,$insert);
   }
-  else if($product_category=="Dining"){
-    $id=0;
-    $sql = "SELECT id from dining_product";
-    $result = $connection->query($sql);
-    
-    if ($result->num_rows > 0) {
-      while($row = $result->fetch_assoc()) {
-        $id=$row["id"];
-      }
-    }
-      $id=$id+1;
-   $insert="insert into dining_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
-   $upload=mysqli_query($connection,$insert);
-  }
-  else if($product_category=="Kitchen"){
-    $id=0;
-    $sql = "SELECT id from kitchen_product";
-    $result = $connection->query($sql);
-    
-    if ($result->num_rows > 0) {
-      while($row = $result->fetch_assoc()) {
-        $id=$row["id"];
-      }
-    }
-      $id=$id+1;
-   $insert="insert into kitchen_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
-   $upload=mysqli_query($connection,$insert);
-  }
-}
-}
-if(isset($_GET['deletebed'])){
+  if (isset($_GET['deletebed'])) {
     $id = $_GET['deletebed'];
     mysqli_query($connection, "DELETE FROM masterbed_product WHERE id = $id");
     header('location:add_delete.php');
- }
- if(isset($_GET['deletedining'])){
-  $id = $_GET['deletedining'];
-  mysqli_query($connection, "DELETE FROM dining_product WHERE id = $id");
-  header('location:add_delete.php');
+  }
+  if (isset($_GET['deletedining'])) {
+    $id = $_GET['deletedining'];
+    mysqli_query($connection, "DELETE FROM dining_product WHERE id = $id");
+    header('location:add_delete.php');
+  }
+  if (isset($_GET['deletedrawing'])) {
+    $id = $_GET['deletedrawing'];
+    mysqli_query($connection, "DELETE FROM drawing_product WHERE id = $id");
+    header('location:add_delete.php');
+  }
+  if (isset($_GET['deletebed'])) {
+    $id = $_GET['deletekitchen'];
+    mysqli_query($connection, "DELETE FROM kitchen_product WHERE id = $id");
+    header('location:add_delete.php');
+  }
 }
-if(isset($_GET['deletedrawing'])){
-  $id = $_GET['deletedrawing'];
-  mysqli_query($connection, "DELETE FROM drawing_product WHERE id = $id");
-  header('location:add_delete.php');
-}
-if(isset($_GET['deletebed'])){
-  $id = $_GET['deletekitchen'];
-  mysqli_query($connection, "DELETE FROM kitchen_product WHERE id = $id");
-  header('location:add_delete.php');
+else
+{
+  header('location:login/adminlogin.php');
 }
 ?>
 
@@ -108,16 +107,18 @@ if(isset($_GET['deletebed'])){
 <head>
   <link rel="stylesheet" href="css/adminpanel.css">
   <script type="text/javascript" src="js/adminpanel.js">
-  <script>
-    if ( window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
+    < script >
+      if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
       }
-</script>
+  </script>
 </head>
 
 <body>
-<h6 style="font-size: xx-large; text-align:center; padding-top:50px;">Add Product</h6>
-<br>
+  <h6 style="font-size: xx-large; text-align:center; padding-top:0px;">Admin Panel</h6>
+  <a style="margin-left:1400px;color:black;font-size:20px;" href="adminlogout.php">Logout</a>
+  <p style="font-size: xx-large; text-align:center; padding-top:50px;">Add Product</p>
+  <br>
   <div class="container1">
     <div class="admin-product-form-container">
       <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
@@ -125,7 +126,7 @@ if(isset($_GET['deletebed'])){
         <div id="dropdown1">
           <label for="category-name" id="label">Choose a category:</label>
           <select name="category" id="category">
-          <option value="Default">Default</option>
+            <option value="Default">Default</option>
             <option value="Masterbed">Masterbed</option>
             <option value="Drawing">Drawing</option>
             <option value="Dining">Dining</option>
@@ -146,81 +147,91 @@ if(isset($_GET['deletebed'])){
   $select3 = mysqli_query($connection, "SELECT * FROM dining_product");
   $select4 = mysqli_query($connection, "SELECT * FROM kitchen_product");
   ?>
-  
-  <div id="delhead"><h6 style="font-size: xx-large; text-align:center;">Delete/Update Product</h6></div>
+
+  <div id="delhead">
+    <p style="font-size: xx-large; text-align:center;">Delete/Update Product</p>
+  </div>
 
 
   <section id="MasterBed_product">
-  <div id="delhead"><h6 style="font-size: xx-large; text-align:center; color:red;"><u>MasterBed</u></h6></div>
-    <div id="masterbedcontainer" class="container2">
-      <?php while($row = mysqli_fetch_assoc($select1)){ ?>
-      <div class="product">
-        <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
-        <div class="description">
-          <h6><?php echo $row['name']; ?></h6>
-          <h4><?php echo "$".$row['price']; ?></h4>
-          <a href="add_delete.php?deletebed=<?php echo $row['id']; ?>" class="btn"> delete </a>
-          <?php $a1="masterbed_product";?>
-          <a href="update.php?edit=<?php echo $row['id'];?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
-        </div>
-      </div>
-      <?php } ?>
+    <div id="delhead">
+      <h6 style="font-size: xx-large; text-align:center; color:red;"><u>MasterBed</u></h6>
     </div>
-  </section>
-
-  
-  <section id="MasterBed_product">
-  <div id="delhead"><h6 style="font-size: xx-large; text-align:center; color:red;"><u>Drawing Room</u></h6></div>
-  
     <div id="masterbedcontainer" class="container2">
-      <?php while($row = mysqli_fetch_assoc($select2)){ ?>
-      <div class="product">
-        <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
-        <div class="description">
-          <h6><?php echo "$".$row['name']; ?></h6>
-          <h4><?php echo "$".$row['price']; ?></h4>
-          <a href="add_delete.php?deletedrawing=<?php echo $row['id']; ?>" class="btn"> delete </a>
-          <?php $a1="drawing_product";?>
-          <a href="update.php?edit=<?php echo $row['id'];?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
+      <?php while ($row = mysqli_fetch_assoc($select1)) { ?>
+        <div class="product">
+          <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
+          <div class="description">
+            <h6><?php echo $row['name']; ?></h6>
+            <h4><?php echo "$" . $row['price']; ?></h4>
+            <a href="add_delete.php?deletebed=<?php echo $row['id']; ?>" class="btn"> delete </a>
+            <?php $a1 = "masterbed_product"; ?>
+            <a href="update.php?edit=<?php echo $row['id']; ?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
+          </div>
         </div>
-      </div>
       <?php } ?>
     </div>
   </section>
 
 
   <section id="MasterBed_product">
-  <div id="delhead"><h6 style="font-size: xx-large; text-align:center; color:red;"><u>Dining Room</u></h6></div>
+    <div id="delhead">
+      <h6 style="font-size: xx-large; text-align:center; color:red;"><u>Drawing Room</u></h6>
+    </div>
+
     <div id="masterbedcontainer" class="container2">
-      <?php while($row = mysqli_fetch_assoc($select3)){ ?>
-      <div class="product">
-        <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
-        <div class="description">
-          <h6><?php echo "$".$row['name']; ?></h6>
-          <h4><?php echo "$".$row['price']; ?></h4>
-          <a href="add_delete.php?deletedining=<?php echo $row['id']; ?>" class="btn"> delete </a>
-          <?php $a1="dining_product";?>
-          <a href="update.php?edit=<?php echo $row['id'];?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
+      <?php while ($row = mysqli_fetch_assoc($select2)) { ?>
+        <div class="product">
+          <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
+          <div class="description">
+            <h6><?php echo "$" . $row['name']; ?></h6>
+            <h4><?php echo "$" . $row['price']; ?></h4>
+            <a href="add_delete.php?deletedrawing=<?php echo $row['id']; ?>" class="btn"> delete </a>
+            <?php $a1 = "drawing_product"; ?>
+            <a href="update.php?edit=<?php echo $row['id']; ?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
+          </div>
         </div>
-      </div>
+      <?php } ?>
+    </div>
+  </section>
+
+
+  <section id="MasterBed_product">
+    <div id="delhead">
+      <h6 style="font-size: xx-large; text-align:center; color:red;"><u>Dining Room</u></h6>
+    </div>
+    <div id="masterbedcontainer" class="container2">
+      <?php while ($row = mysqli_fetch_assoc($select3)) { ?>
+        <div class="product">
+          <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
+          <div class="description">
+            <h6><?php echo "$" . $row['name']; ?></h6>
+            <h4><?php echo "$" . $row['price']; ?></h4>
+            <a href="add_delete.php?deletedining=<?php echo $row['id']; ?>" class="btn"> delete </a>
+            <?php $a1 = "dining_product"; ?>
+            <a href="update.php?edit=<?php echo $row['id']; ?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
+          </div>
+        </div>
       <?php } ?>
     </div>
   </section>
 
   <section id="MasterBed_product">
-  <div id="delhead"><h6 style="font-size: xx-large; text-align:center; color:red;"><u>Kitchen</u></h6></div>
+    <div id="delhead">
+      <h6 style="font-size: xx-large; text-align:center; color:red;"><u>Kitchen</u></h6>
+    </div>
     <div id="masterbedcontainer" class="container2">
-      <?php while($row = mysqli_fetch_assoc($select4)){ ?>
-      <div class="product">
-        <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
-        <div class="description">
-          <h6><?php echo "$".$row['name']; ?></h6>
-          <h4><?php echo "$".$row['price']; ?></h4>
-          <a href="add_delete.php?deletekitchen=<?php echo $row['id']; ?>" class="btn"> delete </a>
-          <?php $a1="kitchen_product";?>
-          <a href="update.php?edit=<?php echo $row['id'];?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
+      <?php while ($row = mysqli_fetch_assoc($select4)) { ?>
+        <div class="product">
+          <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
+          <div class="description">
+            <h6><?php echo "$" . $row['name']; ?></h6>
+            <h4><?php echo "$" . $row['price']; ?></h4>
+            <a href="add_delete.php?deletekitchen=<?php echo $row['id']; ?>" class="btn"> delete </a>
+            <?php $a1 = "kitchen_product"; ?>
+            <a href="update.php?edit=<?php echo $row['id']; ?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
+          </div>
         </div>
-      </div>
       <?php } ?>
     </div>
   </section>

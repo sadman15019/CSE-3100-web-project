@@ -19,7 +19,7 @@ if (isset($_GET['addtocartbed'])) {
   }
 } else if (isset($_GET['addtocartdining'])) {
   if (isset($_SESSION['email'])) {
-    $id = $_GET['addtocartbed'];
+    $id = $_GET['addtocartdining'];
     $select1 = mysqli_query($connection, "SELECT * FROM dining_product where id=$id");
     while ($row = mysqli_fetch_assoc($select1)) {
       $id = $row['id'];
@@ -35,7 +35,7 @@ if (isset($_GET['addtocartbed'])) {
   }
 } else if (isset($_GET['addtocartdrawing'])) {
   if (isset($_SESSION['email'])) {
-    $id = $_GET['addtocartbed'];
+    $id = $_GET['addtocartdrawing'];
     $select1 = mysqli_query($connection, "SELECT * FROM drawing_product where id=$id");
     while ($row = mysqli_fetch_assoc($select1)) {
       $id = $row['id'];
@@ -51,7 +51,7 @@ if (isset($_GET['addtocartbed'])) {
   }
 } else if (isset($_GET['addtocartkitchen'])) {
   if (isset($_SESSION['email'])) {
-    $id = $_GET['addtocartbed'];
+    $id = $_GET['addtocartkitchen'];
     $select1 = mysqli_query($connection, "SELECT * FROM kitchen_product where id=$id");
     while ($row = mysqli_fetch_assoc($select1)) {
       $id = $row['id'];
@@ -216,19 +216,19 @@ if (isset($_GET['addtocartbed'])) {
   </div>
   <div class="frontpage">
     <section id="MasterBed_product">
-      <div style="font-size: 40px;color:blue; margin-top:50px; display:relative;">MasterBed Products</div>
+      <div style="font-size: 40px;color:blue; margin-top:50px; display:relative;">Kitchen Products</div>
       <div id="sortbutton"><button type="submit" id="sort" onclick="sortitem('MasterBed_product')">sort by price</button></div>
       <input style="margin-right:20px ;" type="text" id="myInput" onkeyup="myFunction('MasterBed_product')" placeholder="Search for items.." title="Type in a name">
       <div id="masterbedcontainer" class="container">
         <?php
-        $select1 = mysqli_query($connection, "SELECT * FROM masterbed_product");
+        $select1 = mysqli_query($connection, "SELECT * FROM kitchen_product");
         while ($row = mysqli_fetch_assoc($select1)) { ?>
           <div class="product">
             <img src="images/<?php echo $row['image']; ?>" alt="abc">
             <div class="description">
               <p><?php echo $row['name']; ?></p>
               <p><?php echo "$" . $row['price']; ?></p>
-              <a style="margin-top:0px;  display: block;width:100%;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>" >add to cart</a>
+              <a style="margin-top:0px;  display: block;width:100%;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="kitchen.php?addtocartkitchen=<?php echo $row['id']; ?>" >add to cart</a>
             </div>
           </div>
         <?php } ?>
