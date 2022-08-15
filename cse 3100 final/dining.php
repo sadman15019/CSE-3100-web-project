@@ -2,6 +2,7 @@
 session_start();
 $connection = mysqli_connect('localhost', 'root', '', 'sweet home');
 if (isset($_GET['addtocartbed'])) {
+  $set=0;
   if (isset($_SESSION['email'])) {
     $id = $_GET['addtocartbed'];
     $select1 = mysqli_query($connection, "SELECT * FROM masterbed_product where id=$id");
@@ -10,14 +11,32 @@ if (isset($_GET['addtocartbed'])) {
       $name = $row['name'];
       $price = $row['price'];
       $image = $row['image'];
-      $insert = "insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
-      $upload = mysqli_query($connection, $insert);
+      $category="masterbed_product";
+      $s1 = mysqli_query($connection, "SELECT * FROM cart");
+      while ($row2 = mysqli_fetch_assoc($s1)) {
+        if ($row2['id']==$id && $row2['name'] == $name && $row2['price'] == $price && $row2['image'] == $image) {
+          $set = 1;
+          $i=$row2['id'];
+          $quantity=$row2['quantity'];
+          break;
+        }
+      }
+      if ($set == 1) {
+        $quantity=$quantity+1;
+        $insert = "update cart set quantity=$quantity where id=$i";
+        $upload = mysqli_query($connection, $insert);
+      } else {
+        $insert = "insert into cart(id,name,price,image,quantity,category) values ($id,'$name',$price,'$image',1,'$category')";
+        $upload = mysqli_query($connection, $insert);
+      }
     }
     header('location:cart/cart.php');
   } else {
     header('location:login/login.php');
   }
-} else if (isset($_GET['addtocartdining'])) {
+} 
+else if (isset($_GET['addtocartdining'])) {
+  $set=0;
   if (isset($_SESSION['email'])) {
     $id = $_GET['addtocartdining'];
     $select1 = mysqli_query($connection, "SELECT * FROM dining_product where id=$id");
@@ -26,14 +45,33 @@ if (isset($_GET['addtocartbed'])) {
       $name = $row['name'];
       $price = $row['price'];
       $image = $row['image'];
-      $insert = "insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
-      $upload = mysqli_query($connection, $insert);
+      $category="dining_product";
+      $s1 = mysqli_query($connection, "SELECT * FROM cart");
+      while ($row2 = mysqli_fetch_assoc($s1)) {
+        if ($row2['id']==$id && $row2['name'] == $name && $row2['price'] == $price && $row2['image'] == $image) {
+          $set = 1;
+          $i=$row2['id'];
+          $quantity=$row2['quantity'];
+          break;
+        }
+      }
+      if ($set == 1) {
+        $quantity=$quantity+1;
+        $insert = "update cart set quantity=$quantity where id=$i";
+        $upload = mysqli_query($connection, $insert);
+      } else {
+        $insert = "insert into cart(id,name,price,image,quantity,category) values ($id,'$name',$price,'$image',1,'$category')";
+        $upload = mysqli_query($connection, $insert);
+      }
     }
     header('location:cart/cart.php');
   } else {
     header('location:login/login.php');
   }
-} else if (isset($_GET['addtocartdrawing'])) {
+}
+
+if (isset($_GET['addtocartdrawing'])) {
+  $set=0;
   if (isset($_SESSION['email'])) {
     $id = $_GET['addtocartdrawing'];
     $select1 = mysqli_query($connection, "SELECT * FROM drawing_product where id=$id");
@@ -42,14 +80,33 @@ if (isset($_GET['addtocartbed'])) {
       $name = $row['name'];
       $price = $row['price'];
       $image = $row['image'];
-      $insert = "insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
-      $upload = mysqli_query($connection, $insert);
+      $category="drawing_product";
+      $s1 = mysqli_query($connection, "SELECT * FROM cart");
+      while ($row2 = mysqli_fetch_assoc($s1)) {
+        if ($row2['id']==$id && $row2['name'] == $name && $row2['price'] == $price && $row2['image'] == $image) {
+          $set = 1;
+          $i=$row2['id'];
+          $quantity=$row2['quantity'];
+          break;
+        }
+      }
+      if ($set == 1) {
+        $quantity=$quantity+1;
+        $insert = "update cart set quantity=$quantity where id=$i";
+        $upload = mysqli_query($connection, $insert);
+      } else {
+        $insert = "insert into cart(id,name,price,image,quantity,$category) values ($id,'$name',$price,'$image',1,'$category')";
+        $upload = mysqli_query($connection, $insert);
+      }
     }
     header('location:cart/cart.php');
   } else {
     header('location:login/login.php');
   }
-} else if (isset($_GET['addtocartkitchen'])) {
+}
+
+if (isset($_GET['addtocartkitchen'])) {
+  $set=0;
   if (isset($_SESSION['email'])) {
     $id = $_GET['addtocartkitchen'];
     $select1 = mysqli_query($connection, "SELECT * FROM kitchen_product where id=$id");
@@ -58,8 +115,24 @@ if (isset($_GET['addtocartbed'])) {
       $name = $row['name'];
       $price = $row['price'];
       $image = $row['image'];
-      $insert = "insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
-      $upload = mysqli_query($connection, $insert);
+      $category="kitchen_product";
+      $s1 = mysqli_query($connection, "SELECT * FROM cart");
+      while ($row2 = mysqli_fetch_assoc($s1)) {
+        if ($row2['id']==$id && $row2['name'] == $name && $row2['price'] == $price && $row2['image'] == $image) {
+          $set = 1;
+          $i=$row2['id'];
+          $quantity=$row2['quantity'];
+          break;
+        }
+      }
+      if ($set == 1) {
+        $quantity=$quantity+1;
+        $insert = "update cart set quantity=$quantity where id=$i";
+        $upload = mysqli_query($connection, $insert);
+      } else {
+        $insert = "insert into cart(id,name,price,image,quantity,category) values ($id,'$name',$price,'$image',1,'$category')";
+        $upload = mysqli_query($connection, $insert);
+      }
     }
     header('location:cart/cart.php');
   } else {
@@ -76,7 +149,7 @@ if (isset($_GET['addtocartbed'])) {
 </head>
 
 <body>
-  <script src="js/webproject.js"></script>
+  <script src="webproject.js"></script>
   <div class="header">
     <div class="top">
       <br>
@@ -87,106 +160,106 @@ if (isset($_GET['addtocartbed'])) {
     <div class="navbar">
       <div class="menus">
         <ul class="A">
-        <div id="Master_Bed" class="Master_Bed">
-                        <li class="list"><a href="masterbed.php" class="menu1">Master Bed</a></li>
-                        <div id="Master_bedpop" class="Master_bedpop">
-                            <section id="MasterBed_product1">
-                                <div id="masterbedcontainer1" class="container1">
-                                    <?php
-                                    $select1 = mysqli_query($connection, "SELECT * FROM masterbed_product");
-                                    $cnt = 0;
-                                    while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
-                                        $cnt = $cnt + 1; ?>
-                                        <div class="product1">
-                                            <img src="images/<?php echo $row['image']; ?>" height="100" alt="abc">
-                                            <div class="description">
-                                                <p><?php echo $row['name']; ?></p>
-                                                <p><?php echo $row['price']; ?></p>
-                                                <a style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>" >add to cart</a>
-                                            </div>
-                                        </div>
-                                    <?php } ?>
-
-                                </div>
-                            </section>
-                            <div style="background-color: rgb(57, 48, 46);display: inline-block;width:97%;height:50px;margin-top:50px;padding-top:25px;padding-left:850px;" class="popfooter"><a style="text-decoration:none;color:white;" href="masterbed.php">see more</a></div>
-                        </div>
+          <div id="Master_Bed" class="Master_Bed">
+            <li class="list"><a href="masterbed.php" class="menu1">Master Bed</a></li>
+            <div id="Master_bedpop" class="Master_bedpop">
+              <section id="MasterBed_product1">
+                <div id="masterbedcontainer1" class="container1">
+                  <?php
+                  $select1 = mysqli_query($connection, "SELECT * FROM masterbed_product");
+                  $cnt = 0;
+                  while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
+                    $cnt = $cnt + 1; ?>
+                    <div class="product1">
+                      <img src="images/<?php echo $row['image']; ?>" height="100" alt="abc">
+                      <div class="description">
+                        <p><?php echo $row['name']; ?></p>
+                        <p><?php echo $row['price']; ?></p>
+                        <a target="_blank" style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>">add to cart</a>
+                      </div>
                     </div>
-                    <div id="Dining" class="Dining">
-                        <li class=" list"><a href="dining.php" class="menu2">Dining</a></li>
-                        <div id="Diningpop" class="Diningpop">
-                            <section id="Dining_product1">
-                                <div id="diningcontainer1" class="container2">
-                                    <?php
-                                    $select1 = mysqli_query($connection, "SELECT * FROM dining_product");
-                                    $cnt = 0;
-                                    while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
-                                        $cnt = $cnt + 1; ?>
-                                        <div class="product2">
-                                            <img src="images/<?php echo $row['image']; ?>" height="100" alt="abc">
-                                            <div class="description">
-                                                <p><?php echo $row['name']; ?></p>
-                                                <p><?php echo $row['price']; ?></p>
-                                                <a style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>" >add to cart</a>
-                                            </div>
-                                        </div>
-                                    <?php } ?>
+                  <?php } ?>
 
-                                </div>
-                            </section>
-                            <div style="background-color: rgb(57, 48, 46);display: inline-block;width:97%;height:50px;margin-top:50px;padding-top:25px;padding-left:850px;" class="popfooter"><a style="text-decoration:none;color:white;" href="dining.php">see more</a></div>
-                        </div>
+                </div>
+              </section>
+              <div style="background-color: rgb(57, 48, 46);display: inline-block;width:97%;height:50px;margin-top:50px;padding-top:25px;padding-left:850px;" class="popfooter"><a style="text-decoration:none;color:white;" href="masterbed.php">see more</a></div>
+            </div>
+          </div>
+          <div id="Dining" class="Dining">
+            <li class=" list"><a href="dining.php" class="menu2">Dining</a></li>
+            <div id="Diningpop" class="Diningpop">
+              <section id="Dining_product1">
+                <div id="diningcontainer1" class="container2">
+                  <?php
+                  $select1 = mysqli_query($connection, "SELECT * FROM dining_product");
+                  $cnt = 0;
+                  while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
+                    $cnt = $cnt + 1; ?>
+                    <div class="product2">
+                      <img src="images/<?php echo $row['image']; ?>" height="100" alt="abc">
+                      <div class="description">
+                        <p><?php echo $row['name']; ?></p>
+                        <p><?php echo $row['price']; ?></p>
+                        <a target="_blank" style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>">add to cart</a>
+                      </div>
                     </div>
-                    <div id="Drawing" class="Drawing">
-                        <li class=" list"><a href="drawing.php" class="menu3">Drawing</a></li>
-                        <div id="Drawingpop" class="Drawingpop">
-                            <section id="Drawing_product1">
-                                <div id="drawingcontainer1" class="container3">
-                                    <?php
-                                    $select1 = mysqli_query($connection, "SELECT * FROM drawing_product");
-                                    $cnt = 0;
-                                    while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
-                                        $cnt = $cnt + 1; ?>
-                                        <div class="product3">
-                                            <img src="images/<?php echo $row['image']; ?>" height="100" alt="abc">
-                                            <div class="description">
-                                                <p><?php echo $row['name']; ?></p>
-                                                <p><?php echo $row['price']; ?></p>
-                                                <a style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>" >add to cart</a>
-                                            </div>
-                                        </div>
-                                    <?php } ?>
+                  <?php } ?>
 
-                                </div>
-                            </section>
-                            <div style="background-color: rgb(57, 48, 46);display: inline-block;width:97%;height:50px;margin-top:50px;padding-top:25px;padding-left:850px;" class="popfooter"><a style="text-decoration:none;color:white;" href="drawing.php">see more</a></div>
-                        </div>
+                </div>
+              </section>
+              <div style="background-color: rgb(57, 48, 46);display: inline-block;width:97%;height:50px;margin-top:50px;padding-top:25px;padding-left:850px;" class="popfooter"><a style="text-decoration:none;color:white;" href="dining.php">see more</a></div>
+            </div>
+          </div>
+          <div id="Drawing" class="Drawing">
+            <li class=" list"><a href="drawing.php" class="menu3">Drawing</a></li>
+            <div id="Drawingpop" class="Drawingpop">
+              <section id="Drawing_product1">
+                <div id="drawingcontainer1" class="container3">
+                  <?php
+                  $select1 = mysqli_query($connection, "SELECT * FROM drawing_product");
+                  $cnt = 0;
+                  while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
+                    $cnt = $cnt + 1; ?>
+                    <div class="product3">
+                      <img src="images/<?php echo $row['image']; ?>" height="100" alt="abc">
+                      <div class="description">
+                        <p><?php echo $row['name']; ?></p>
+                        <p><?php echo $row['price']; ?></p>
+                        <a target="blank" style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>">add to cart</a>
+                      </div>
                     </div>
-                    <div id="Kitchen" class="Kitchen">
-                        <li class=" list"><a href="kitchen.php" class="menu4">Kitchen</a></li>
-                        <div id="Kitchenpop" class="Kitchenpop">
-                            <section id="Kitchen_product1">
-                                <div id="kitchencontainer1" class="container4">
-                                    <?php
-                                    $select1 = mysqli_query($connection, "SELECT * FROM kitchen_product");
-                                    $cnt = 0;
-                                    while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
-                                        $cnt = $cnt + 1; ?>
-                                        <div class="product4">
-                                            <img src="images/<?php echo $row['image']; ?>" height="100" alt="abc">
-                                            <div class="description">
-                                                <h6><?php echo $row['name']; ?></h6>
-                                                <h4><?php echo $row['price']; ?></h4>
-                                                <a style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>" >add to cart</a>
-                                            </div>
-                                        </div>
-                                    <?php } ?>
+                  <?php } ?>
 
-                                </div>
-                            </section>
-                            <div style="background-color: rgb(57, 48, 46);display: inline-block;width:97%;height:50px;margin-top:50px;padding-top:25px;padding-left:850px;" class="popfooter"><a style="text-decoration:none;color:white;" href="kitchen.php">see more</a></div>
-                        </div>
+                </div>
+              </section>
+              <div style="background-color: rgb(57, 48, 46);display: inline-block;width:97%;height:50px;margin-top:50px;padding-top:25px;padding-left:850px;" class="popfooter"><a style="text-decoration:none;color:white;" href="drawing.php">see more</a></div>
+            </div>
+          </div>
+          <div id="Kitchen" class="Kitchen">
+            <li class=" list"><a href="kitchen.php" class="menu4">Kitchen</a></li>
+            <div id="Kitchenpop" class="Kitchenpop">
+              <section id="Kitchen_product1">
+                <div id="kitchencontainer1" class="container4">
+                  <?php
+                  $select1 = mysqli_query($connection, "SELECT * FROM kitchen_product");
+                  $cnt = 0;
+                  while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
+                    $cnt = $cnt + 1; ?>
+                    <div class="product4">
+                      <img src="images/<?php echo $row['image']; ?>" height="100" alt="abc">
+                      <div class="description">
+                        <p><?php echo $row['name']; ?></p>
+                        <p><?php echo $row['price']; ?></p>
+                        <a target="blank" style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>">add to cart</a>
+                      </div>
                     </div>
+                  <?php } ?>
+
+                </div>
+              </section>
+              <div style="background-color: rgb(57, 48, 46);display: inline-block;width:97%;height:50px;margin-top:50px;padding-top:25px;padding-left:850px;" class="popfooter"><a style="text-decoration:none;color:white;" href="kitchen.php">see more</a></div>
+            </div>
+          </div>
         </ul>
       </div>
       <div class="companyname">
@@ -199,7 +272,7 @@ if (isset($_GET['addtocartbed'])) {
       <div style="margin-right:0px;" class="logsignup">
         <ul class="C">
           <div class="Login">
-            <li class="list"><a href="http://localhost/cse 3100 final/login/loginas.php" class="Login">Login</a></li>
+            <li class="list"><a href="http://localhost/cse 3100 final/login/loginas.php" class="Login"><?php if(isset($_SESSION['name'])){echo $_SESSION['name'];}else{echo "Login";}?></a></li>
           </div>
           <div class="Signup">
             <li class="list"><a href="http://localhost/cse 3100 final/login/signup.php" class="Signup">Signup</a></li>
@@ -215,10 +288,10 @@ if (isset($_GET['addtocartbed'])) {
     <img class="img1" src="images/dining.jpg" width="1400" height="400">
   </div>
   <div class="frontpage">
-    <section id="MasterBed_product">
+    <section id="Dining_product">
       <div style="font-size: 40px;color:blue; margin-top:50px; display:relative;">Dining Products</div>
-      <div id="sortbutton"><button type="submit" id="sort" onclick="sortitem('MasterBed_product')">sort by price</button></div>
-      <input style="margin-right:20px ;" type="text" id="myInput" onkeyup="myFunction('MasterBed_product')" placeholder="Search for items.." title="Type in a name">
+      <div id="sortbutton"><button type="submit" id="sort" onclick="sortitem('Dining_product')">sort by price</button></div>
+      <input style="margin-right:20px ;" type="text" id="myInput" onkeyup="myFunction('Dining_product')" placeholder="Search for items.." title="Type in a name">
       <div id="masterbedcontainer" class="container">
         <?php
         $select1 = mysqli_query($connection, "SELECT * FROM dining_product");
@@ -226,9 +299,9 @@ if (isset($_GET['addtocartbed'])) {
           <div class="product">
             <img src="images/<?php echo $row['image']; ?>" alt="abc">
             <div class="description">
-              <p><?php echo $row['name']; ?></p>
-              <p><?php echo "$" . $row['price']; ?></p>
-              <a style="margin-top:0px;  display: block;width:100%;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="dining.php?addtocartdining=<?php echo $row['id']; ?>" >add to cart</a>
+              <h6 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo $row['name']; ?></h6>
+              <h4 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo "$" . $row['price']; ?></h4>
+                <a target="blank" style="margin-top:0px;  display: block;width:100%;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="dining.php?addtocartdining=<?php echo $row['id']; ?>">add to cart</a>
             </div>
           </div>
         <?php } ?>

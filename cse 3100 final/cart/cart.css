@@ -253,15 +253,24 @@
 
 }
 .btn{
-    display: block;
-    width: 100%;
-    cursor: pointer;
-    border-radius: .5rem;
-    margin-top: 1rem;
-    font-size: 1.7rem;
-    padding:1rem 3rem;
-    background: var(--green);
-    color:var(--white);
-    text-align: center;
+    height: 40px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: white;
+  background: #231828;
+background: linear-gradient(90deg, #231828 0%,  #231828 100%);
+  border: none;
+  border-radius: 5px;
+ /* box-shadow: 12px 12px 24px #231828;*/
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 120px;
  }
 

@@ -27,10 +27,10 @@ if (isset($_SESSION['id'])) {
           }
         }
         $id = $id + 1;
-        $insert = "insert into masterbed_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
+        $insert = "insert into masterbed_product(id,name,price,image,category) values ($id,'$product_name',$product_price,'$product_image','masterbed_product')";
         $upload = mysqli_query($connection, $insert);
       } else if ($product_category == "Drawing") {
-        $id = 0;
+        $id = 100;
         $sql = "SELECT id from drawing_product";
         $result = $connection->query($sql);
 
@@ -40,10 +40,10 @@ if (isset($_SESSION['id'])) {
           }
         }
         $id = $id + 1;
-        $insert = "insert into drawing_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
+        $insert = "insert into drawing_product(id,name,price,image,category) values ($id,'$product_name',$product_price,'$product_image','drawing_product')";
         $upload = mysqli_query($connection, $insert);
       } else if ($product_category == "Dining") {
-        $id = 0;
+        $id = 200;
         $sql = "SELECT id from dining_product";
         $result = $connection->query($sql);
 
@@ -53,10 +53,10 @@ if (isset($_SESSION['id'])) {
           }
         }
         $id = $id + 1;
-        $insert = "insert into dining_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
+        $insert = "insert into dining_product(id,name,price,image,category) values ($id,'$product_name',$product_price,'$product_image','dining_product')";
         $upload = mysqli_query($connection, $insert);
       } else if ($product_category == "Kitchen") {
-        $id = 0;
+        $id = 300;
         $sql = "SELECT id from kitchen_product";
         $result = $connection->query($sql);
 
@@ -66,7 +66,7 @@ if (isset($_SESSION['id'])) {
           }
         }
         $id = $id + 1;
-        $insert = "insert into kitchen_product(id,name,price,image) values ($id,'$product_name',$product_price,'$product_image')";
+        $insert = "insert into kitchen_product(id,name,price,image,category) values ($id,'$product_name',$product_price,'$product_image','kitchen_product')";
         $upload = mysqli_query($connection, $insert);
       }
     }
@@ -106,8 +106,8 @@ else
 
 <head>
   <link rel="stylesheet" href="css/adminpanel.css">
-  <script type="text/javascript" src="js/adminpanel.js">
-    < script >
+  <script type="text/javascript" src="js/adminpanel.js"></script>
+    <script>
       if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
       }
@@ -162,11 +162,12 @@ else
         <div class="product">
           <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
           <div class="description">
-            <h6><?php echo $row['name']; ?></h6>
-            <h4><?php echo "$" . $row['price']; ?></h4>
-            <a href="add_delete.php?deletebed=<?php echo $row['id']; ?>" class="btn"> delete </a>
+          <h6 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo $row['name']; ?></h6>
+          <h4 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo "$" . $row['price']; ?></h4>
+            <a style="margin-top:0px;  display: block;width: 320px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 35px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 8px;" href="add_delete.php?deletebed=<?php echo $row['id']; ?>" class="btn"> delete </a>  
             <?php $a1 = "masterbed_product"; ?>
-            <a href="update.php?edit=<?php echo $row['id']; ?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
+            <br>
+            <a style="margin-top:0px;  display: block;width: 320px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 35px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 8px;" href="update.php?edit=<?php echo $row['id']; ?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
           </div>
         </div>
       <?php } ?>
@@ -184,11 +185,12 @@ else
         <div class="product">
           <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
           <div class="description">
-            <h6><?php echo "$" . $row['name']; ?></h6>
-            <h4><?php echo "$" . $row['price']; ?></h4>
-            <a href="add_delete.php?deletedrawing=<?php echo $row['id']; ?>" class="btn"> delete </a>
+          <h6 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo  $row['name']; ?></h6>
+          <h4 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo "$" . $row['price']; ?></h4>
+            <a style="margin-top:0px;  display: block;width: 320px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 35px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 8px;" href="add_delete.php?deletedrawing=<?php echo $row['id']; ?>" class="btn"> delete </a>
             <?php $a1 = "drawing_product"; ?>
-            <a href="update.php?edit=<?php echo $row['id']; ?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
+            <br>
+            <a style="margin-top:0px;  display: block;width: 320px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 35px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 8px;" href="update.php?edit=<?php echo $row['id']; ?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
           </div>
         </div>
       <?php } ?>
@@ -205,11 +207,12 @@ else
         <div class="product">
           <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
           <div class="description">
-            <h6><?php echo "$" . $row['name']; ?></h6>
-            <h4><?php echo "$" . $row['price']; ?></h4>
-            <a href="add_delete.php?deletedining=<?php echo $row['id']; ?>" class="btn"> delete </a>
+          <h6 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo  $row['name']; ?></h6>
+          <h4 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo "$" . $row['price']; ?></h4>
+            <a style="margin-top:0px;  display: block;width: 320px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 35px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 8px;" href="add_delete.php?deletedining=<?php echo $row['id']; ?>" class="btn"> delete </a>
             <?php $a1 = "dining_product"; ?>
-            <a href="update.php?edit=<?php echo $row['id']; ?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
+            <br>
+            <a style="margin-top:0px;  display: block;width: 320px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 35px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 8px;" href="update.php?edit=<?php echo $row['id']; ?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
           </div>
         </div>
       <?php } ?>
@@ -225,11 +228,12 @@ else
         <div class="product">
           <img src="uploaded_image/<?php echo $row['image']; ?>" height="100" alt="abc">
           <div class="description">
-            <h6><?php echo "$" . $row['name']; ?></h6>
-            <h4><?php echo "$" . $row['price']; ?></h4>
-            <a href="add_delete.php?deletekitchen=<?php echo $row['id']; ?>" class="btn"> delete </a>
+          <h6 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo  $row['name']; ?></h6>
+          <h4 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo "$" . $row['price']; ?></h4>
+            <a style="margin-top:0px;  display: block;width: 320px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 35px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 8px;" href="add_delete.php?deletekitchen=<?php echo $row['id']; ?>" class="btn"> delete </a>
             <?php $a1 = "kitchen_product"; ?>
-            <a href="update.php?edit=<?php echo $row['id']; ?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
+            <br>
+            <a style="margin-top:0px;  display: block;width: 320px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 35px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 8px;" href="update.php?edit=<?php echo $row['id']; ?> & edit2=<?php echo $a1; ?>" class="btn"> edit </a>
           </div>
         </div>
       <?php } ?>

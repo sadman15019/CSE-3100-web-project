@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Exo', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 20px;
       box-sizing: border-box;
   }
@@ -35,7 +35,7 @@
     height: 500px;
     width: 1000px;
     position: absolute;
-    /*top: 50px;*/
+    margin-top: 20px;
     left: -50px;
     display: none;
     background-color: white;
@@ -54,7 +54,7 @@
     height: 500px;
     width: 1000px;
     position: absolute;
-    /*top: 50px;*/
+    margin-top: 20px;
     left: -50px;
     display: none;
     background-color: white;
@@ -73,7 +73,7 @@
     height: 500px;
     width: 1000px;
     position: absolute;
-    top: 50px;
+    margin-top: 20px;
     left: -50px;
     display: none;
     background-color: white;
@@ -90,7 +90,7 @@
     height: 500px;
     width: 1000px;
     position: absolute;
-    top: 50px;
+    margin-top: 20px;
     left: -50px;
     display: none;
     background-color: white;
@@ -103,7 +103,7 @@
   }
   #myInput{
     margin-top: 20px;
-    height: 30px;
+    height: 40px;
     margin-left: 1300px;
     position:relative;
     width: 200px;
@@ -121,6 +121,19 @@
     margin:15px 15px;
     display: inline-block;
     float: left;
+  }
+  .body{
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -40px;
+    bottom: -40px;
+    width: auto;
+    height: auto;
+    background-image:url("signup.jpg");
+    background-size: cover;
+    -webkit-filter: blur(5px);
+    z-index: 0;
   }
   #MasterBed_product{
     text-align: center;
@@ -152,19 +165,6 @@
     float: left;
     background-color: #fff;
   }
-  .body{
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -40px;
-    bottom: -40px;
-    width: auto;
-    height: auto;
-    background-image:url("signup.jpg");
-    background-size: cover;
-    -webkit-filter: blur(5px);
-    z-index: 0;
-  }
   #MasterBed_product .product img{
     width:100%;
     height:75%;
@@ -189,7 +189,6 @@
   }
   #MasterBed_product1 .product1{
     width:23%;
-    height:1000px;
     min-width:250px;
     padding-top: 10px 12px;
     border: 1px solid #cce7d0;
@@ -211,29 +210,37 @@
   }
   #Dining_product{
     text-align: center;
-    margin-top: 100px;
+    margin-top: 0px;
   }
   #Dining_product .container{
     display: flex;
-    justify-content:space-between;
-    padding-top :20px;
+   /*justify-content:space-between;*/
+    margin-top: 50px;
+    padding-top :50px;
+    padding-left: 5px;
     flex-wrap: wrap;
     overflow: hidden;
+    /*background-image:url('signup.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    background-color: #eef3f3;
   }
   #Dining_product .product{
-    width:23%;
+    width:20%;
     min-width:250px;
-    padding: 10px 12px;
+    padding-top: 10px 0px;
     border: 1px solid #cce7d0;
     border-radius: 25px;
     cursor: pointer;
     box-shadow:20px 20px 30px rgba(0,0,0,0.02) ;
-    margin:15px 0;
+    margin:15px 30px;
     display: inline-block;
     float: left;
+    background-color: #fff;
   }
   #Dining_product .product img{
     width:100%;
+    height:75%;
     border-radius: 20px;
   }
   #Dining_product .product .description{
@@ -857,23 +864,25 @@ html, body {
 
 #sort {
  /* min-width: 300px;*/
-  min-height: 60px;
+  height: 40px;
   font-family: 'Nunito', sans-serif;
-  font-size: 22px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1.3px;
   font-weight: 700;
-  color: #313133;
-  background: #4FD1C5;
-background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+  color: white;
+  background: #231828;
+background: linear-gradient(90deg, #231828 0%,  #231828 100%);
   border: none;
-  border-radius: 1000px;
-  box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+  border-radius: 5px;
+ /* box-shadow: 12px 12px 24px #231828;*/
   transition: all 0.3s ease-in-out 0s;
   cursor: pointer;
   outline: none;
   position: relative;
   padding: 10px;
+  margin-top: 10px;
+  margin-left: 120px;
   }
 
 @keyframes ring {
@@ -895,7 +904,7 @@ background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 10
 
 body{
   background: #f2f2f2;
-  font-family: 'Open Sans', sans-serif;
+  font-family: Arial;
 }
 
 .search {

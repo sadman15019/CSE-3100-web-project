@@ -2,6 +2,7 @@
 session_start();
 $connection = mysqli_connect('localhost', 'root', '', 'sweet home');
 if (isset($_GET['addtocartbed'])) {
+  $set=0;
   if (isset($_SESSION['email'])) {
     $id = $_GET['addtocartbed'];
     $select1 = mysqli_query($connection, "SELECT * FROM masterbed_product where id=$id");
@@ -10,14 +11,32 @@ if (isset($_GET['addtocartbed'])) {
       $name = $row['name'];
       $price = $row['price'];
       $image = $row['image'];
-      $insert = "insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
-      $upload = mysqli_query($connection, $insert);
+      $category="masterbed_product";
+      $s1 = mysqli_query($connection, "SELECT * FROM cart");
+      while ($row2 = mysqli_fetch_assoc($s1)) {
+        if ($row2['id']==$id && $row2['name'] == $name && $row2['price'] == $price && $row2['image'] == $image) {
+          $set = 1;
+          $i=$row2['id'];
+          $quantity=$row2['quantity'];
+          break;
+        }
+      }
+      if ($set == 1) {
+        $quantity=$quantity+1;
+        $insert = "update cart set quantity=$quantity where id=$i";
+        $upload = mysqli_query($connection, $insert);
+      } else {
+        $insert = "insert into cart(id,name,price,image,quantity,category) values ($id,'$name',$price,'$image',1,'$category')";
+        $upload = mysqli_query($connection, $insert);
+      }
     }
     header('location:cart/cart.php');
   } else {
     header('location:login/login.php');
   }
-} else if (isset($_GET['addtocartdining'])) {
+} 
+else if (isset($_GET['addtocartdining'])) {
+  $set=0;
   if (isset($_SESSION['email'])) {
     $id = $_GET['addtocartdining'];
     $select1 = mysqli_query($connection, "SELECT * FROM dining_product where id=$id");
@@ -26,14 +45,33 @@ if (isset($_GET['addtocartbed'])) {
       $name = $row['name'];
       $price = $row['price'];
       $image = $row['image'];
-      $insert = "insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
-      $upload = mysqli_query($connection, $insert);
+      $category="dining_product";
+      $s1 = mysqli_query($connection, "SELECT * FROM cart");
+      while ($row2 = mysqli_fetch_assoc($s1)) {
+        if ($row2['id']==$id && $row2['name'] == $name && $row2['price'] == $price && $row2['image'] == $image) {
+          $set = 1;
+          $i=$row2['id'];
+          $quantity=$row2['quantity'];
+          break;
+        }
+      }
+      if ($set == 1) {
+        $quantity=$quantity+1;
+        $insert = "update cart set quantity=$quantity where id=$i";
+        $upload = mysqli_query($connection, $insert);
+      } else {
+        $insert = "insert into cart(id,name,price,image,quantity,category) values ($id,'$name',$price,'$image',1,'$category')";
+        $upload = mysqli_query($connection, $insert);
+      }
     }
     header('location:cart/cart.php');
   } else {
     header('location:login/login.php');
   }
-} else if (isset($_GET['addtocartdrawing'])) {
+}
+
+if (isset($_GET['addtocartdrawing'])) {
+  $set=0;
   if (isset($_SESSION['email'])) {
     $id = $_GET['addtocartdrawing'];
     $select1 = mysqli_query($connection, "SELECT * FROM drawing_product where id=$id");
@@ -42,14 +80,33 @@ if (isset($_GET['addtocartbed'])) {
       $name = $row['name'];
       $price = $row['price'];
       $image = $row['image'];
-      $insert = "insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
-      $upload = mysqli_query($connection, $insert);
+      $category="drawing_product";
+      $s1 = mysqli_query($connection, "SELECT * FROM cart");
+      while ($row2 = mysqli_fetch_assoc($s1)) {
+        if ($row2['id']==$id && $row2['name'] == $name && $row2['price'] == $price && $row2['image'] == $image) {
+          $set = 1;
+          $i=$row2['id'];
+          $quantity=$row2['quantity'];
+          break;
+        }
+      }
+      if ($set == 1) {
+        $quantity=$quantity+1;
+        $insert = "update cart set quantity=$quantity where id=$i";
+        $upload = mysqli_query($connection, $insert);
+      } else {
+        $insert = "insert into cart(id,name,price,image,quantity,category) values ($id,'$name',$price,'$image',1,'$category')";
+        $upload = mysqli_query($connection, $insert);
+      }
     }
     header('location:cart/cart.php');
   } else {
     header('location:login/login.php');
   }
-} else if (isset($_GET['addtocartkitchen'])) {
+}
+
+if (isset($_GET['addtocartkitchen'])) {
+  $set=0;
   if (isset($_SESSION['email'])) {
     $id = $_GET['addtocartkitchen'];
     $select1 = mysqli_query($connection, "SELECT * FROM kitchen_product where id=$id");
@@ -58,8 +115,24 @@ if (isset($_GET['addtocartbed'])) {
       $name = $row['name'];
       $price = $row['price'];
       $image = $row['image'];
-      $insert = "insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
-      $upload = mysqli_query($connection, $insert);
+      $category="kitchen_product";
+      $s1 = mysqli_query($connection, "SELECT * FROM cart");
+      while ($row2 = mysqli_fetch_assoc($s1)) {
+        if ($row2['id']==$id && $row2['name'] == $name && $row2['price'] == $price && $row2['image'] == $image) {
+          $set = 1;
+          $i=$row2['id'];
+          $quantity=$row2['quantity'];
+          break;
+        }
+      }
+      if ($set == 1) {
+        $quantity=$quantity+1;
+        $insert = "update cart set quantity=$quantity where id=$i";
+        $upload = mysqli_query($connection, $insert);
+      } else {
+        $insert = "insert into cart(id,name,price,image,quantity,category) values ($id,'$name',$price,'$image',1,'$category')";
+        $upload = mysqli_query($connection, $insert);
+      }
     }
     header('location:cart/cart.php');
   } else {
@@ -175,8 +248,8 @@ if (isset($_GET['addtocartbed'])) {
                                         <div class="product4">
                                             <img src="images/<?php echo $row['image']; ?>" height="100" alt="abc">
                                             <div class="description">
-                                                <h6><?php echo $row['name']; ?></h6>
-                                                <h4><?php echo $row['price']; ?></h4>
+                                                <p><?php echo $row['name']; ?></p>
+                                                <p><?php echo $row['price']; ?></p>
                                                 <a style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>" >add to cart</a>
                                             </div>
                                         </div>
@@ -199,7 +272,7 @@ if (isset($_GET['addtocartbed'])) {
       <div style="margin-right:0px;" class="logsignup">
         <ul class="C">
           <div class="Login">
-            <li class="list"><a href="http://localhost/cse 3100 final/login/loginas.php" class="Login">Login</a></li>
+            <li class="list"><a href="http://localhost/cse 3100 final/login/loginas.php" class="Login"><?php if(isset($_SESSION['name'])){echo $_SESSION['name'];}else{echo "Login";}?></a></li>
           </div>
           <div class="Signup">
             <li class="list"><a href="http://localhost/cse 3100 final/login/signup.php" class="Signup">Signup</a></li>
@@ -212,7 +285,7 @@ if (isset($_GET['addtocartbed'])) {
     </div>
   </div>
   <div style="margin-left:55px" ; class="frontpage">
-    <img class="img1" src="images/masterbed.jpg" width="1400" height="400">
+    <img class="img1" src="images/drawing.jpg" width="1400" height="400">
   </div>
   <div class="frontpage">
     <section id="MasterBed_product">
@@ -226,9 +299,9 @@ if (isset($_GET['addtocartbed'])) {
           <div class="product">
             <img src="images/<?php echo $row['image']; ?>" alt="abc">
             <div class="description">
-              <p><?php echo $row['name']; ?></p>
-              <p><?php echo "$" . $row['price']; ?></p>
-              <a style="margin-top:0px;  display: block;width:100%;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>" >add to cart</a>
+            <h6 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo $row['name']; ?></h6>
+            <h4 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo "$" . $row['price']; ?></h4>
+              <a target="_blank" style="margin-top:0px;  display: block;width:100%;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartdrawing=<?php echo $row['id']; ?>" >add to cart</a>
             </div>
           </div>
         <?php } ?>

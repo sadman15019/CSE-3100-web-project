@@ -103,7 +103,7 @@ if (isset($_GET['addtocartbed'])) {
                                             <div class="description">
                                                 <h6><?php echo $row['name']; ?></h6>
                                                 <h4><?php echo $row['price']; ?></h4>
-                                                <a style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>" >add to cart</a>
+                                                <a style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>">add to cart</a>
                                             </div>
                                         </div>
                                     <?php } ?>
@@ -128,7 +128,7 @@ if (isset($_GET['addtocartbed'])) {
                                             <div class="description">
                                                 <h6><?php echo $row['name']; ?></h6>
                                                 <h4><?php echo $row['price']; ?></h4>
-                                                <a style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>" >add to cart</a>
+                                                <a style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>">add to cart</a>
                                             </div>
                                         </div>
                                     <?php } ?>
@@ -153,7 +153,7 @@ if (isset($_GET['addtocartbed'])) {
                                             <div class="description">
                                                 <h6><?php echo $row['name']; ?></h6>
                                                 <h4><?php echo $row['price']; ?></h4>
-                                                <a style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>" >add to cart</a>
+                                                <a style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>">add to cart</a>
                                             </div>
                                         </div>
                                     <?php } ?>
@@ -178,7 +178,7 @@ if (isset($_GET['addtocartbed'])) {
                                             <div class="description">
                                                 <h6><?php echo $row['name']; ?></h6>
                                                 <h4><?php echo $row['price']; ?></h4>
-                                                <a style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>" >add to cart</a>
+                                                <a style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartbed=<?php echo $row['id']; ?>">add to cart</a>
                                             </div>
                                         </div>
                                     <?php } ?>
@@ -200,84 +200,47 @@ if (isset($_GET['addtocartbed'])) {
             <div style="margin-right:0px;" class="logsignup">
                 <ul class="C">
                     <div class="Login">
-                        <li class="list"><a href="http://localhost/cse 3100 final/login/loginas.php" class="Login">Login</a></li>
+                        <li class="list"><a href="http://localhost/cse 3100 final/login/loginas.php" class="Login"><?php if(isset($_SESSION['name'])){echo $_SESSION['name'];}else{echo "Login";}?></a></li>
                     </div>
                     <div class="Signup">
                         <li class="list"><a href="http://localhost/cse 3100 final/login/signup.php" class="Signup">Signup</a></li>
                     </div>
-                    <div class="Logout">
-                        <li class="list"><a href="http://localhost/cse 3100 final/login/logout.php" class="Logout">Logout</a></li>
+                    <div id="yoyo" class="Logout">
+                        <li class="list"><a href="http://localhost/cse 3100 final/login/logout.php" class="Logout"><?php if(!isset($_SESSION['email'])){echo "<script>document.getElementById('yoyo').style.display ='none';</script>" ;} ?>Logout</a></li>
                     </div>
                 </ul>
             </div>
         </div>
     </div>
     <div class="frontpage">
-        <img class="img1" src="images/back.jpg" width="1900" height="450">
+        <img style="margin-left:46px;"class="img1" src="images/back.jpg" width="1400" height="450">
     </div>
     <br>
-    <section id="featured_product">
-        <h2 style="font-size: 50px;">Top Featured Products</h2>
+    <section id="MasterBed_product">
+        <h2 style="font-size: 50px;">Suggested for you</h2>
         <br>
-        <p>All new winter collections</p>
-        <div class="container">
-            <div class="product">
-                <img src="pillow.jpg" alt="" height="" width="">
-                <div class="description">
-                    <h6>Sateen Pillow Case</h6>
-                    <h4>$80</h4>
-                </div>
+            <div id="masterbedcontainer" class="container">
+                <?php
+                if(isset($_COOKIE['category']))
+                {
+                    $a=$_COOKIE['category'];
+                    $select1 = mysqli_query($connection, "SELECT * FROM $a");
+                }
+                else
+                {
+                    $select1 = mysqli_query($connection, "SELECT * FROM masterbed_product") ;
+                }
+                while ($row = mysqli_fetch_assoc($select1)) { ?>
+                    <div class="product">
+                        <img src="images/<?php echo $row['image']; ?>" alt="abc">
+                        <div class="description">
+                            <h6 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo $row['name']; ?></h6>
+                            <h4 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo "$" . $row['price']; ?></h4>
+                            <a target="_blank" style="margin-top:0px;  display: block;width: 290px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 35px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 8px;" href="masterbed.php?<?php if($row['category']=="dining_product"){echo"addtocartdining";} else if($row['category']=="masterbed_product"){echo"addtocartbed";}else if($row['category']=="drawing_product"){echo"addtocartdrawing";}else if($row['category']=="kitchen_product"){echo"addtocartkitchen";}?>=<?php echo $row['id']; ?>">add to cart</a>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
-            <div class="product">
-                <img src="pillow.jpg" alt="" height="" width="">
-                <div class="description">
-                    <h6>Sateen Pillow Case</h6>
-                    <h4>$80</h4>
-                </div>
-            </div>
-            <div class="product">
-                <img src="pillow.jpg" alt="" height="" width="">
-                <div class="description">
-                    <h6>Sateen Pillow Case</h6>
-                    <h4>$80</h4>
-                </div>
-            </div>
-            <div class="product">
-                <img src="pillow.jpg" alt="" height="" width="">
-                <div class="description">
-                    <h6>Sateen Pillow Case</h6>
-                    <h4>$80</h4>
-                </div>
-            </div>
-            <div class="product">
-                <img src="pillow.jpg" alt="" height="" width="">
-                <div class="description">
-                    <h6>Sateen Pillow Case</h6>
-                    <h4>$80</h4>
-                </div>
-            </div>
-            <div class="product">
-                <img src="pillow.jpg" alt="" height="" width="">
-                <div class="description">
-                    <h6>Sateen Pillow Case</h6>
-                    <h4>$80</h4>
-                </div>
-            </div>
-            <div class="product">
-                <img src="pillow.jpg" alt="" height="" width="">
-                <div class="description">
-                    <h6>Sateen Pillow Case</h6>
-                    <h4>$80</h4>
-                </div>
-            </div>
-            <div class="product">
-                <img src="pillow.jpg" alt="" height="" width="">
-                <div class="description">
-                    <h6>Sateen Pillow Case</h6>
-                    <h4>$80</h4>
-                </div>
-            </div>
-        </div>
     </section>
 
 

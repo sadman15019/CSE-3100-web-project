@@ -29,6 +29,12 @@ if (isset($_POST['login'])) {
           setcookie('password', $password, time() + 60 * 60 * 7, "/");
           session_start();
           $_SESSION['email'] = $email;
+          $_SESSION['name'] = $row['name'];
+          $_SESSION['id'] = $row['id'];
+          $_SESSION['time'] = time();
+          if (time() > $_SESSION['time'] + (60*60)) {
+            unset($_SESSION['email']);
+          }
           header('location:http://localhost/cse 3100 final/home.php');
         }
       }
