@@ -10,6 +10,11 @@
 
 ![Screenshot (251)](https://user-images.githubusercontent.com/92980057/195973542-abd3de10-ca6f-4ccb-9fc6-8f16c39eb132.png)
 
+![Screenshot (680)](https://github.com/sadman15019/cse-3100-web-project/assets/92980057/11eec43e-fd08-4379-91b0-53321706d827)
+
+
+![Screenshot (681)](https://github.com/sadman15019/cse-3100-web-project/assets/92980057/61a5842f-4241-4eee-888a-997e7c2d7b39)
+
 ![Screenshot (252)](https://user-images.githubusercontent.com/92980057/195973545-b7429904-f2de-4c01-afb1-a1f9bb941a5a.png)
 
 ![Screenshot (253)](https://user-images.githubusercontent.com/92980057/195973546-56852c24-580b-414a-be7f-723496efa021.png)
@@ -25,7 +30,4 @@
 ![Screenshot (261)](https://user-images.githubusercontent.com/92980057/195973574-4289682c-eca4-43b2-9782-ad755ddf158f.png)
 
 
-![Screenshot (680)](https://github.com/sadman15019/cse-3100-web-project/assets/92980057/11eec43e-fd08-4379-91b0-53321706d827)
 
-
-![Screenshot (681)](https://github.com/sadman15019/cse-3100-web-project/assets/92980057/61a5842f-4241-4eee-888a-997e7c2d7b39)
