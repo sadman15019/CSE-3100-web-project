@@ -36,11 +36,19 @@ if (isset($_POST['signup'])) {
     if (empty($password)) {
         $c = "password is required";
     }
-    if (strlen($password) < 8 || !$number || !$letter) {
-        $c = "Password must be at least 8 characters in length and must contain at least one number and one letter";
+
+    if (empty($number)) {
+        $c = "mobile number is required";
     }
 
-    if ($a == "" && $b == "" && $c == "") {
+    if (empty($address)) {
+        $d = "address is required";
+    }
+    if (strlen($password) < 8 || !$number || !$letter) {
+        $e = "Password must be at least 8 characters in length and must contain at least one number and one letter";
+    }
+
+    if ($a == "" && $b == "" && $c == "" && $d==" " && $e==" " ) {
         $id = 0;
         $sql = "SELECT id from user";
         $result = $connection->query($sql);
@@ -51,7 +59,7 @@ if (isset($_POST['signup'])) {
             }
         }
         $id = $id + 1;
-        $insert = "insert into user(id,name,email,password) values ($id,'$name','$email','$password')";
+        $insert = "insert into user(id,name,email,password,address,phone_number) values ($id,'$name','$email','$password','$address','$number')";
         $upload = mysqli_query($connection, $insert);
     }
 }
@@ -90,6 +98,15 @@ if (isset($_POST['signup'])) {
             <div style="color:red; font-size:large;"><?php if (isset($c)) {
                                                             echo $c;
                                                         } ?></div>
+            <input type="text" placeholder="phone number" name="number"><br>
+            <div style="color:red; font-size:large;"><?php if (isset($d)) {
+                                                            echo $d;
+                                                        } ?></div>   
+            
+            <input type="text" placeholder="address" name="address"><br>
+            <div style="color:red; font-size:large;"><?php if (isset($e)) {
+                                                            echo $e;
+                                                        } ?></div> 
             <input style="	width: 260px;height: 35px;background: #fff;border: 1px solid #fff;cursor: pointer;border-radius: 2px;color: #a18d6c;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;padding: 6px;margin-top: 10px;" type="submit" value="signup" name="signup">
         </div>
     </form>

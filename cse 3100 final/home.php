@@ -4,14 +4,23 @@ session_start();
 if (isset($_GET['addtocartbed'])) {
     if (isset($_SESSION['email'])) {
         $id = $_GET['addtocartbed'];
-        $select1 = mysqli_query($connection, "SELECT * FROM masterbed_product where id=$id");
+        $select1 = mysqli_query($connection, "select * from products where id = $id");
         while ($row = mysqli_fetch_assoc($select1)) {
             $id = $row['id'];
             $name = $row['name'];
             $price = $row['price'];
             $image = $row['image'];
-            $insert = "insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
-            $upload = mysqli_query($connection, $insert);
+            $select2 = mysqli_query($connection, "select quantity FROM cart_product WHERE user_id = $_SESSION['id'] AND product_id = $id" );
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0)
+            {
+                $select2 =mysqli_connect($connection,"update cart_product SET quantity = quantity+1 WHERE user_id = $_SESSION['id'] AND product_id = $id") ;
+            }
+            else
+            {
+                $insert = "insert into cart_product (user_id,product_id,quantity) values ('$_SESSION['id']','$id','1',)";
+                $upload = mysqli_query($connection, $insert);
+            }
         }
         header('location:cart/cart.php');
     } else {
@@ -20,14 +29,23 @@ if (isset($_GET['addtocartbed'])) {
 } else if (isset($_GET['addtocartdining'])) {
     if (isset($_SESSION['email'])) {
         $id = $_GET['addtocartbed'];
-        $select1 = mysqli_query($connection, "SELECT * FROM dining_product where id=$id");
+        $select1 = mysqli_query($connection, "select * from products where id = $id");
         while ($row = mysqli_fetch_assoc($select1)) {
             $id = $row['id'];
             $name = $row['name'];
             $price = $row['price'];
             $image = $row['image'];
-            $insert = "insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
-            $upload = mysqli_query($connection, $insert);
+            $select2 = mysqli_query($connection, "select quantity FROM cart_product WHERE user_id = $_SESSION['id'] AND product_id = $id" );
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0)
+            {
+                $select2 =mysqli_connect($connection,"update cart_product SET quantity = quantity+1 WHERE user_id = $_SESSION['id'] AND product_id = $id") ;
+            }
+            else
+            {
+                $insert = "insert into cart_product (user_id,product_id,quantity) values ('$_SESSION['id']','$id','1',)";
+                $upload = mysqli_query($connection, $insert);
+            }
         }
         header('location:cart/cart.php');
     } else {
@@ -36,14 +54,23 @@ if (isset($_GET['addtocartbed'])) {
 } else if (isset($_GET['addtocartdrawing'])) {
     if (isset($_SESSION['email'])) {
         $id = $_GET['addtocartbed'];
-        $select1 = mysqli_query($connection, "SELECT * FROM drawing_product where id=$id");
+        $select1 = mysqli_query($connection, "select * from products where id = $id");
         while ($row = mysqli_fetch_assoc($select1)) {
             $id = $row['id'];
             $name = $row['name'];
             $price = $row['price'];
             $image = $row['image'];
-            $insert = "insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
-            $upload = mysqli_query($connection, $insert);
+            $select2 = mysqli_query($connection, "select quantity FROM cart_product WHERE user_id = $_SESSION['id'] AND product_id = $id" );
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0)
+            {
+                $select2 =mysqli_connect($connection,"update cart_product SET quantity = quantity+1 WHERE user_id = $_SESSION['id'] AND product_id = $id") ;
+            }
+            else
+            {
+                $insert = "insert into cart_product (user_id,product_id,quantity) values ('$_SESSION['id']','$id','1',)";
+                $upload = mysqli_query($connection, $insert);
+            }
         }
         header('location:cart/cart.php');
     } else {
@@ -52,14 +79,23 @@ if (isset($_GET['addtocartbed'])) {
 } else if (isset($_GET['addtocartkitchen'])) {
     if (isset($_SESSION['email'])) {
         $id = $_GET['addtocartbed'];
-        $select1 = mysqli_query($connection, "SELECT * FROM kitchen_product where id=$id");
+        $select1 = mysqli_query($connection, "select * from products where id = $id");
         while ($row = mysqli_fetch_assoc($select1)) {
             $id = $row['id'];
             $name = $row['name'];
             $price = $row['price'];
             $image = $row['image'];
-            $insert = "insert into cart(id,name,price,image) values ($id,'$name',$price,'$image')";
-            $upload = mysqli_query($connection, $insert);
+            $select2 = mysqli_query($connection, "select quantity FROM cart_product WHERE user_id = $_SESSION['id'] AND product_id = $id" );
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0)
+            {
+                $select2 =mysqli_connect($connection,"update cart_product SET quantity = quantity+1 WHERE user_id = $_SESSION['id'] AND product_id = $id") ;
+            }
+            else
+            {
+                $insert = "insert into cart_product (user_id,product_id,quantity) values ('$_SESSION['id']','$id','1',)";
+                $upload = mysqli_query($connection, $insert);
+            }
         }
         header('location:cart/cart.php');
     } else {
@@ -94,7 +130,7 @@ if (isset($_GET['addtocartbed'])) {
                             <section id="MasterBed_product1">
                                 <div id="masterbedcontainer1" class="container1">
                                     <?php
-                                    $select1 = mysqli_query($connection, "SELECT * FROM masterbed_product");
+                                    $select1 = mysqli_query($connection, "SELECT * FROM products where category_id=1");
                                     $cnt = 0;
                                     while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
                                         $cnt = $cnt + 1; ?>
@@ -119,7 +155,7 @@ if (isset($_GET['addtocartbed'])) {
                             <section id="Dining_product1">
                                 <div id="diningcontainer1" class="container2">
                                     <?php
-                                    $select1 = mysqli_query($connection, "SELECT * FROM dining_product");
+                                    $select1 = mysqli_query($connection, "SELECT * FROM products where category_id=2");
                                     $cnt = 0;
                                     while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
                                         $cnt = $cnt + 1; ?>
@@ -144,7 +180,7 @@ if (isset($_GET['addtocartbed'])) {
                             <section id="Drawing_product1">
                                 <div id="drawingcontainer1" class="container3">
                                     <?php
-                                    $select1 = mysqli_query($connection, "SELECT * FROM drawing_product");
+                                    $select1 = mysqli_query($connection, "SELECT * FROM products where category_id=3");
                                     $cnt = 0;
                                     while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
                                         $cnt = $cnt + 1; ?>
@@ -169,7 +205,7 @@ if (isset($_GET['addtocartbed'])) {
                             <section id="Kitchen_product1">
                                 <div id="kitchencontainer1" class="container4">
                                     <?php
-                                    $select1 = mysqli_query($connection, "SELECT * FROM kitchen_product");
+                                    $select1 = mysqli_query($connection, "SELECT * FROM products where category_id=4");
                                     $cnt = 0;
                                     while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
                                         $cnt = $cnt + 1; ?>
@@ -228,7 +264,7 @@ if (isset($_GET['addtocartbed'])) {
                 }
                 else
                 {
-                    $select1 = mysqli_query($connection, "SELECT * FROM masterbed_product") ;
+                    $select1 = mysqli_query($connection, "SELECT * FROM products where category_id=1") ;
                 }
                 while ($row = mysqli_fetch_assoc($select1)) { ?>
                     <div class="product">

@@ -28,6 +28,7 @@ if (isset($_POST['login'])) {
           setcookie('email', $email, time() + 60 * 60 * 7, "/");
           setcookie('password', $password, time() + 60 * 60 * 7, "/");
           session_start();
+          $_SESSION['id'] = $id;
           $_SESSION['email'] = $email;
           $_SESSION['name'] = $row['name'];
           $_SESSION['id'] = $row['id'];

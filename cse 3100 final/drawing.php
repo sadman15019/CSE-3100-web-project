@@ -1,145 +1,107 @@
 <?php
-session_start();
 $connection = mysqli_connect('localhost', 'root', '', 'sweet home');
+session_start();
 if (isset($_GET['addtocartbed'])) {
-  $set=0;
-  if (isset($_SESSION['email'])) {
-    $id = $_GET['addtocartbed'];
-    $select1 = mysqli_query($connection, "SELECT * FROM masterbed_product where id=$id");
-    while ($row = mysqli_fetch_assoc($select1)) {
-      $id = $row['id'];
-      $name = $row['name'];
-      $price = $row['price'];
-      $image = $row['image'];
-      $category="masterbed_product";
-      $s1 = mysqli_query($connection, "SELECT * FROM cart");
-      while ($row2 = mysqli_fetch_assoc($s1)) {
-        if ($row2['id']==$id && $row2['name'] == $name && $row2['price'] == $price && $row2['image'] == $image) {
-          $set = 1;
-          $i=$row2['id'];
-          $quantity=$row2['quantity'];
-          break;
+    if (isset($_SESSION['email'])) {
+        $id = $_GET['addtocartbed'];
+        $select1 = mysqli_query($connection, "select * from products where id = $id");
+        while ($row = mysqli_fetch_assoc($select1)) {
+            $id = $row['id'];
+            $name = $row['name'];
+            $price = $row['price'];
+            $image = $row['image'];
+            $select2 = mysqli_query($connection, "select quantity FROM cart_product WHERE user_id = $_SESSION['id'] AND product_id = $id" );
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0)
+            {
+                $select2 =mysqli_connect($connection,"update cart_product SET quantity = quantity+1 WHERE user_id = $_SESSION['id'] AND product_id = $id") ;
+            }
+            else
+            {
+                $insert = "insert into cart_product (user_id,product_id,quantity) values ('$_SESSION['id']','$id','1',)";
+                $upload = mysqli_query($connection, $insert);
+            }
         }
-      }
-      if ($set == 1) {
-        $quantity=$quantity+1;
-        $insert = "update cart set quantity=$quantity where id=$i";
-        $upload = mysqli_query($connection, $insert);
-      } else {
-        $insert = "insert into cart(id,name,price,image,quantity,category) values ($id,'$name',$price,'$image',1,'$category')";
-        $upload = mysqli_query($connection, $insert);
-      }
+        header('location:cart/cart.php');
+    } else {
+        header('location:login/login.php');
     }
-    header('location:cart/cart.php');
-  } else {
-    header('location:login/login.php');
-  }
-} 
-else if (isset($_GET['addtocartdining'])) {
-  $set=0;
-  if (isset($_SESSION['email'])) {
-    $id = $_GET['addtocartdining'];
-    $select1 = mysqli_query($connection, "SELECT * FROM dining_product where id=$id");
-    while ($row = mysqli_fetch_assoc($select1)) {
-      $id = $row['id'];
-      $name = $row['name'];
-      $price = $row['price'];
-      $image = $row['image'];
-      $category="dining_product";
-      $s1 = mysqli_query($connection, "SELECT * FROM cart");
-      while ($row2 = mysqli_fetch_assoc($s1)) {
-        if ($row2['id']==$id && $row2['name'] == $name && $row2['price'] == $price && $row2['image'] == $image) {
-          $set = 1;
-          $i=$row2['id'];
-          $quantity=$row2['quantity'];
-          break;
+} else if (isset($_GET['addtocartdining'])) {
+    if (isset($_SESSION['email'])) {
+        $id = $_GET['addtocartbed'];
+        $select1 = mysqli_query($connection, "select * from products where id = $id");
+        while ($row = mysqli_fetch_assoc($select1)) {
+            $id = $row['id'];
+            $name = $row['name'];
+            $price = $row['price'];
+            $image = $row['image'];
+            $select2 = mysqli_query($connection, "select quantity FROM cart_product WHERE user_id = $_SESSION['id'] AND product_id = $id" );
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0)
+            {
+                $select2 =mysqli_connect($connection,"update cart_product SET quantity = quantity+1 WHERE user_id = $_SESSION['id'] AND product_id = $id") ;
+            }
+            else
+            {
+                $insert = "insert into cart_product (user_id,product_id,quantity) values ('$_SESSION['id']','$id','1',)";
+                $upload = mysqli_query($connection, $insert);
+            }
         }
-      }
-      if ($set == 1) {
-        $quantity=$quantity+1;
-        $insert = "update cart set quantity=$quantity where id=$i";
-        $upload = mysqli_query($connection, $insert);
-      } else {
-        $insert = "insert into cart(id,name,price,image,quantity,category) values ($id,'$name',$price,'$image',1,'$category')";
-        $upload = mysqli_query($connection, $insert);
-      }
+        header('location:cart/cart.php');
+    } else {
+        header('location:login/login.php');
     }
-    header('location:cart/cart.php');
-  } else {
-    header('location:login/login.php');
-  }
-}
-
-if (isset($_GET['addtocartdrawing'])) {
-  $set=0;
-  if (isset($_SESSION['email'])) {
-    $id = $_GET['addtocartdrawing'];
-    $select1 = mysqli_query($connection, "SELECT * FROM drawing_product where id=$id");
-    while ($row = mysqli_fetch_assoc($select1)) {
-      $id = $row['id'];
-      $name = $row['name'];
-      $price = $row['price'];
-      $image = $row['image'];
-      $category="drawing_product";
-      $s1 = mysqli_query($connection, "SELECT * FROM cart");
-      while ($row2 = mysqli_fetch_assoc($s1)) {
-        if ($row2['id']==$id && $row2['name'] == $name && $row2['price'] == $price && $row2['image'] == $image) {
-          $set = 1;
-          $i=$row2['id'];
-          $quantity=$row2['quantity'];
-          break;
+} else if (isset($_GET['addtocartdrawing'])) {
+    if (isset($_SESSION['email'])) {
+        $id = $_GET['addtocartbed'];
+        $select1 = mysqli_query($connection, "select * from products where id = $id");
+        while ($row = mysqli_fetch_assoc($select1)) {
+            $id = $row['id'];
+            $name = $row['name'];
+            $price = $row['price'];
+            $image = $row['image'];
+            $select2 = mysqli_query($connection, "select quantity FROM cart_product WHERE user_id = $_SESSION['id'] AND product_id = $id" );
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0)
+            {
+                $select2 =mysqli_connect($connection,"update cart_product SET quantity = quantity+1 WHERE user_id = $_SESSION['id'] AND product_id = $id") ;
+            }
+            else
+            {
+                $insert = "insert into cart_product (user_id,product_id,quantity) values ('$_SESSION['id']','$id','1',)";
+                $upload = mysqli_query($connection, $insert);
+            }
         }
-      }
-      if ($set == 1) {
-        $quantity=$quantity+1;
-        $insert = "update cart set quantity=$quantity where id=$i";
-        $upload = mysqli_query($connection, $insert);
-      } else {
-        $insert = "insert into cart(id,name,price,image,quantity,category) values ($id,'$name',$price,'$image',1,'$category')";
-        $upload = mysqli_query($connection, $insert);
-      }
+        header('location:cart/cart.php');
+    } else {
+        header('location:login/login.php');
     }
-    header('location:cart/cart.php');
-  } else {
-    header('location:login/login.php');
-  }
-}
-
-if (isset($_GET['addtocartkitchen'])) {
-  $set=0;
-  if (isset($_SESSION['email'])) {
-    $id = $_GET['addtocartkitchen'];
-    $select1 = mysqli_query($connection, "SELECT * FROM kitchen_product where id=$id");
-    while ($row = mysqli_fetch_assoc($select1)) {
-      $id = $row['id'];
-      $name = $row['name'];
-      $price = $row['price'];
-      $image = $row['image'];
-      $category="kitchen_product";
-      $s1 = mysqli_query($connection, "SELECT * FROM cart");
-      while ($row2 = mysqli_fetch_assoc($s1)) {
-        if ($row2['id']==$id && $row2['name'] == $name && $row2['price'] == $price && $row2['image'] == $image) {
-          $set = 1;
-          $i=$row2['id'];
-          $quantity=$row2['quantity'];
-          break;
+} else if (isset($_GET['addtocartkitchen'])) {
+    if (isset($_SESSION['email'])) {
+        $id = $_GET['addtocartbed'];
+        $select1 = mysqli_query($connection, "select * from products where id = $id");
+        while ($row = mysqli_fetch_assoc($select1)) {
+            $id = $row['id'];
+            $name = $row['name'];
+            $price = $row['price'];
+            $image = $row['image'];
+            $select2 = mysqli_query($connection, "select quantity FROM cart_product WHERE user_id = $_SESSION['id'] AND product_id = $id" );
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0)
+            {
+                $select2 =mysqli_connect($connection,"update cart_product SET quantity = quantity+1 WHERE user_id = $_SESSION['id'] AND product_id = $id") ;
+            }
+            else
+            {
+                $insert = "insert into cart_product (user_id,product_id,quantity) values ('$_SESSION['id']','$id','1',)";
+                $upload = mysqli_query($connection, $insert);
+            }
         }
-      }
-      if ($set == 1) {
-        $quantity=$quantity+1;
-        $insert = "update cart set quantity=$quantity where id=$i";
-        $upload = mysqli_query($connection, $insert);
-      } else {
-        $insert = "insert into cart(id,name,price,image,quantity,category) values ($id,'$name',$price,'$image',1,'$category')";
-        $upload = mysqli_query($connection, $insert);
-      }
+        header('location:cart/cart.php');
+    } else {
+        header('location:login/login.php');
     }
-    header('location:cart/cart.php');
-  } else {
-    header('location:login/login.php');
-  }
-}
-?>
+}?>
 
 <!DOCTYPE html>
 <html>
@@ -157,16 +119,16 @@ if (isset($_GET['addtocartkitchen'])) {
         : 30% off sitewide and free shipping on orders over $100.
         *Terms</p>
     </div>
-    <div class="navbar">
+    <div class="navbar">  <!-- navbar that hovering displays some of the products -->
       <div class="menus">
         <ul class="A">
         <div id="Master_Bed" class="Master_Bed">
-                        <li class="list"><a href="masterbed.php" class="menu1">Master Bed</a></li>
+                        <li class="list"><a href="masterbed.php" class="menu1">Master Bed</a></li>  <!-- link to bedroom category -->
                         <div id="Master_bedpop" class="Master_bedpop">
                             <section id="MasterBed_product1">
                                 <div id="masterbedcontainer1" class="container1">
                                     <?php
-                                    $select1 = mysqli_query($connection, "SELECT * FROM masterbed_product");
+                                    $select1 = mysqli_query($connection, "SELECT * FROM products where category_id=1");  // fetch first thrre products on hover
                                     $cnt = 0;
                                     while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
                                         $cnt = $cnt + 1; ?>
@@ -175,7 +137,7 @@ if (isset($_GET['addtocartkitchen'])) {
                                             <div class="description">
                                                 <p><?php echo $row['name']; ?></p>
                                                 <p><?php echo $row['price']; ?></p>
-                                                <a style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="drawing.php?addtocartdrawing=<?php echo $row['id']; ?>" >add to cart</a>
+                                                <a style="margin-top:0px;  display: block;width: 220px;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none; 	width: 200px;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="drawing.php?addtocartdrawing=<?php echo $row['id']; ?>" >add to cart</a>   <!-- can add item from hovered opened item to cart -->
                                             </div>
                                         </div>
                                     <?php } ?>
@@ -191,7 +153,7 @@ if (isset($_GET['addtocartkitchen'])) {
                             <section id="Dining_product1">
                                 <div id="diningcontainer1" class="container2">
                                     <?php
-                                    $select1 = mysqli_query($connection, "SELECT * FROM dining_product");
+                                    $select1 = mysqli_query($connection, "SELECT * FROM products where category_id=2");
                                     $cnt = 0;
                                     while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
                                         $cnt = $cnt + 1; ?>
@@ -216,7 +178,7 @@ if (isset($_GET['addtocartkitchen'])) {
                             <section id="Drawing_product1">
                                 <div id="drawingcontainer1" class="container3">
                                     <?php
-                                    $select1 = mysqli_query($connection, "SELECT * FROM drawing_product");
+                                    $select1 = mysqli_query($connection, "SELECT * FROM products where category_id=3");
                                     $cnt = 0;
                                     while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
                                         $cnt = $cnt + 1; ?>
@@ -241,7 +203,7 @@ if (isset($_GET['addtocartkitchen'])) {
                             <section id="Kitchen_product1">
                                 <div id="kitchencontainer1" class="container4">
                                     <?php
-                                    $select1 = mysqli_query($connection, "SELECT * FROM kitchen_product");
+                                    $select1 = mysqli_query($connection, "SELECT * FROM products where category_id=4");
                                     $cnt = 0;
                                     while ($cnt < 3 && $row = mysqli_fetch_assoc($select1)) {
                                         $cnt = $cnt + 1; ?>
@@ -260,7 +222,7 @@ if (isset($_GET['addtocartkitchen'])) {
                             <div style="background-color: rgb(57, 48, 46);display: inline-block;width:97%;height:50px;margin-top:50px;padding-top:25px;padding-left:850px;" class="popfooter"><a style="text-decoration:none;color:white;" href="kitchen.php">see more</a></div>
                         </div>
                     </div>
-        </ul>
+        </ul>  <!-- here ends the category navbar -->
       </div>
       <div class="companyname">
         <ul class="B">
@@ -270,45 +232,123 @@ if (isset($_GET['addtocartkitchen'])) {
         </ul>
       </div>
       <div style="margin-right:0px;" class="logsignup">
-        <ul class="C">
+        <ul class="C">  <!-- navbar for login and logout -->
           <div class="Login">
-            <li class="list"><a href="http://localhost/cse 3100 final/login/loginas.php" class="Login"><?php if(isset($_SESSION['name'])){echo $_SESSION['name'];}else{echo "Login";}?></a></li>
+            <li class="list"><a href="http://localhost/cse 3100 final/login/loginas.php" class="Login"><?php if(isset($_SESSION['name'])){echo $_SESSION['name'];}else{echo "Login";}?></a></li>  <!-- link for login -->
           </div>
           <div class="Signup">
-            <li class="list"><a href="http://localhost/cse 3100 final/login/signup.php" class="Signup">Signup</a></li>
+            <li class="list"><a href="http://localhost/cse 3100 final/login/signup.php" class="Signup">Signup</a></li> <!-- link for signup -->
           </div>
           <div class="Logout">
-            <li class="list"><a href="http://localhost/cse 3100 final/login/logout.php" class="Logout">Logout</a></li>
+            <li class="list"><a href="http://localhost/cse 3100 final/login/logout.php" class="Logout">Logout</a></li> <!-- link for signout -->
           </div>
         </ul>
       </div>
     </div>
   </div>
   <div style="margin-left:55px" ; class="frontpage">
-    <img class="img1" src="images/drawing.jpg" width="1400" height="400">
+    <img class="img1" src="images/drawing.jpg" width="1400" height="400">  <!-- the large image -->
   </div>
   <div class="frontpage">
     <section id="MasterBed_product">
       <div style="font-size: 40px;color:blue; margin-top:50px; display:relative;">Drawing Products</div>
-      <div id="sortbutton"><button type="submit" id="sort" onclick="sortitem('MasterBed_product')">sort by price</button></div>
-      <input style="margin-right:20px ;" type="text" id="myInput" onkeyup="myFunction('MasterBed_product')" placeholder="Search for items.." title="Type in a name">
-      <div id="masterbedcontainer" class="container">
+      <div id="sortbutton"><button type="submit" id="sort" onclick="sortitem('MasterBed_product')">sort by price</button></div>  <!-- sort button -->
+      <input style="margin-right:20px ;" type="text" id="myInput" onkeyup="myFunction('MasterBed_product')" placeholder="Search for items.." title="Type in a name"> <!-- search  bar -->
+      <div id="masterbedcontainer" class="container">  <!-- outer div for products -->
         <?php
-        $select1 = mysqli_query($connection, "SELECT * FROM drawing_product");
+        $select1 = mysqli_query($connection, "SELECT * FROM products where category_id=3");
         while ($row = mysqli_fetch_assoc($select1)) { ?>
-          <div class="product">
+          <div class="product">  <!-- div for each products -->
             <img src="images/<?php echo $row['image']; ?>" alt="abc">
             <div class="description">
             <h6 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo $row['name']; ?></h6>
             <h4 style="font-size: 17.5px;font-family:Poppins', sans-serif;"><?php echo "$" . $row['price']; ?></h4>
-              <a target="_blank" style="margin-top:0px;  display: block;width:100%;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartdrawing=<?php echo $row['id']; ?>" >add to cart</a>
+             <?php $rating=mysqli_query($connection,"select avg(rating) from review where product_id=$row['id']"); ?>
+             <!-- code start for star rating system -->
+
+            <div class="star-rating">
+              <div class="rating-wrap">
+             
+                <div class="center">
+                  <fieldset class="rating">              <!-- grouping related items (here starts) and create a box around it -->
+                  <?php if($rating>=5) { ?>
+                     <input type="radio" id="star5" name="rating" value="5"/><label for="star5" class="full" style="color: #FFD700;"></label>
+                     <?php } 
+                  else { ?>
+
+                     <input type="radio" id="star5" name="rating" value="5"/><label for="star5" class="full"></label>
+                  <?php } ?>
+
+
+                  <?php if($rating>=4) { ?>
+                     <input type="radio" id="star4" name="rating" value="4"/><label for="star4" class="full" style="color: #FFD700;"></label>
+                     <?php } 
+                  else { ?>
+
+                     <input type="radio" id="star4" name="rating" value="4"/><label for="star4" class="full" ></label>
+                  <?php } ?>
+
+                  <?php if($rating>=3) { ?>
+                     <input type="radio" id="star3" name="rating" value="3"/><label for="star3" class="full" style="color: #FFD700;"></label>
+                     <?php } 
+                  else { ?>
+
+                     <input type="radio" id="star3" name="rating" value="3"/><label for="star3" class="full" ></label>
+                  <?php } ?>
+
+                  <?php if($rating>=2) { ?>
+                     <input type="radio" id="star2" name="rating" value="2"/><label for="star2" class="full" style="color: #FFD700;"></label>
+                     <?php } 
+                  else { ?>
+
+                     <input type="radio" id="star2" name="rating" value="2"/><label for="star2" class="full" ></label>
+                  <?php } ?>
+
+                  <?php if($rating>=1) { ?>
+                     <input type="radio" id="star1" name="rating" value="1"/><label for="star1" class="full" style="color: #FFD700;"></label>
+                     <?php } 
+                  else { ?>
+
+                     <input type="radio" id="star1" name="rating" value="1"/><label for="star1" class="full" ></label>
+                  <?php } ?>
+
+                  </fieldset>
+                </div>
+
+              </div>
+
+
+
             </div>
+
+             <!-- code ends for star rating system -->
+
+              <a target="_blank" style="margin-top:0px;  display: block;width:100%;cursor: pointer;border-radius: .5rem;font-size: 30px;background: var(--green);background-color: rgb(57, 48, 46);color:var(--white);text-align: center;text-decoration: none;height: 30px;	background: transparent;border: 1px solid black;border-radius: 2px;	color: black;font-family: 'Exo', sans-serif;font-size: 16px;font-weight: 400;	padding: 4px;" href="masterbed.php?addtocartdrawing=<?php echo $row['id']; ?>" >add to cart</a>
+            </div>  <!-- div end for each products -->
           </div>
         <?php } ?>
       </div>
     </section>
   </div>
+  <div id="overlay"> 
+  <div class="star-rating2">
+		<div class="rating-wrap2">
+			<h1>Submit Your Rating!</h1>
+			<div class="center2">
+				<fieldset class="rating2">
+					<input type="radio" id="star52" name="rating2" value="5"/><label for="star52" class="full" ></label>
+					<input type="radio" id="star42" name="rating2" value="4"/><label for="star42" class="full"></label>
+					<input type="radio" id="star32" name="rating2" value="3"/><label for="star32" class="full"></label>
+					<input type="radio" id="star22" name="rating2" value="2"/><label for="star22" class="full"></label>
+					<input type="radio" id="star12" name="rating2" value="1"/><label for="star12" class="full"></label>
+				</fieldset>
+			</div>
+  </div>
+  </div>
+</div>
   <br>
+
+
   <footer>
     <div class="footer-wrap">
       <div class="widgetFooter">
