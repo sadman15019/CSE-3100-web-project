@@ -19,7 +19,7 @@
 
 ![Screenshot (253)](https://user-images.githubusercontent.com/92980057/195973546-56852c24-580b-414a-be7f-723496efa021.png)
 
-![Screenshot (255)](https://user-images.githubusercontent.com/92980057/195973559-382e3773-6c38-46b4-bb30-3e0d769fb594.png)
+![Screenshot (682)](https://github.com/sadman15019/cse-3100-web-project/assets/92980057/8cfae673-3079-415e-ad5d-17784c230ad0)
 
 ![Screenshot (258)](https://user-images.githubusercontent.com/92980057/195973562-b01eb723-068e-4ed3-888a-a3ebbb85fa10.png)
 
@@ -28,6 +28,7 @@
 ![Screenshot (260)](https://user-images.githubusercontent.com/92980057/195973570-340107fd-dd65-4fb6-b706-d8b145aa3e5f.png)
 
 ![Screenshot (261)](https://user-images.githubusercontent.com/92980057/195973574-4289682c-eca4-43b2-9782-ad755ddf158f.png)
+
 
 
 
