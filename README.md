@@ -39,7 +39,7 @@ Here are some screenshots of the application:
 ![Screenshot (246)](https://user-images.githubusercontent.com/92980057/195973529-3e187706-4673-4c2f-911b-5537b601d171.png)
 
 
-### Product Search Results
+### Product Search Results (Sorted by Price)
 
 ![Screenshot (248)](https://user-images.githubusercontent.com/92980057/195973533-94a7a6ca-7e3b-4428-b100-f845abcc7640.png)
 
