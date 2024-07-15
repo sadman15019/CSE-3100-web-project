@@ -1,3 +1,45 @@
+# Sweet Home
+
+An e-commerce platform that provides a seamless shopping experience with features like user and admin authentication, item search, sorting, reviews, and a cart system.
+
+## Table of Contents
+
+- [Technologies](#technologies)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Technologies
+
+- HTML
+- CSS
+- JavaScript
+- PHP
+- MySQL
+
+## Features
+
+1. User and admin authentication
+2. Searchbar for items
+3. Sort items based on price
+4. Star review system
+5. Cart system for checkout
+6. Cookie-based suggestion system
+7. Product items addition, deletion, and updation system for admin
+
+## Screenshots
+
+Here are some screenshots of the application:
+
+### Home Page
+
+
+### Search Results
+
+
+### Product Details
+
 ![Screenshot (245)](https://user-images.githubusercontent.com/92980057/195973635-b88d43fa-73fb-4b1b-8f8a-20353f392bc1.png)
 
 ![Screenshot (246)](https://user-images.githubusercontent.com/92980057/195973529-3e187706-4673-4c2f-911b-5537b601d171.png)
