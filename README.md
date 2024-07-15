@@ -33,16 +33,13 @@ An e-commerce platform that provides a seamless shopping experience with feature
 Here are some screenshots of the application:
 
 ### Home Page
-
-
-### Search Results
-
-
-### Product Details
-
 ![Screenshot (245)](https://user-images.githubusercontent.com/92980057/195973635-b88d43fa-73fb-4b1b-8f8a-20353f392bc1.png)
 
+### Poduct Search Navigation
 ![Screenshot (246)](https://user-images.githubusercontent.com/92980057/195973529-3e187706-4673-4c2f-911b-5537b601d171.png)
+
+
+### Product Search Results
 
 ![Screenshot (248)](https://user-images.githubusercontent.com/92980057/195973533-94a7a6ca-7e3b-4428-b100-f845abcc7640.png)
 
@@ -54,8 +51,11 @@ Here are some screenshots of the application:
 
 ![Screenshot (680)](https://github.com/sadman15019/cse-3100-web-project/assets/92980057/11eec43e-fd08-4379-91b0-53321706d827)
 
+## Rating Submission
 
 ![Screenshot (681)](https://github.com/sadman15019/cse-3100-web-project/assets/92980057/61a5842f-4241-4eee-888a-997e7c2d7b39)
+
+## Signup and Login page
 
 ![Screenshot (252)](https://user-images.githubusercontent.com/92980057/195973545-b7429904-f2de-4c01-afb1-a1f9bb941a5a.png)
 
@@ -63,11 +63,17 @@ Here are some screenshots of the application:
 
 ![Screenshot (682)](https://github.com/sadman15019/cse-3100-web-project/assets/92980057/8cfae673-3079-415e-ad5d-17784c230ad0)
 
+## Cart Checkout
+
 ![Screenshot (258)](https://user-images.githubusercontent.com/92980057/195973562-b01eb723-068e-4ed3-888a-a3ebbb85fa10.png)
 
+## New Product Add (Admin Pnael)
+
 ![Screenshot (259)](https://user-images.githubusercontent.com/92980057/195973569-639f2e34-22f0-48fc-ae52-1fe8a30e1ba0.png)
+## Delete/ Update Product (Admin Pnael)
 
 ![Screenshot (260)](https://user-images.githubusercontent.com/92980057/195973570-340107fd-dd65-4fb6-b706-d8b145aa3e5f.png)
+
 
 ![Screenshot (261)](https://user-images.githubusercontent.com/92980057/195973574-4289682c-eca4-43b2-9782-ad755ddf158f.png)
 
