@@ -7,8 +7,7 @@ An e-commerce platform that provides a seamless shopping experience with feature
 - [Technologies](#technologies)
 - [Features](#features)
 - [Screenshots](#screenshots)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Technologies
 
